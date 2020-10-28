@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@200;400&family=Roboto+Slab&display=swap');
+
+html,
+body {
+  font-family: 'IBM Plex Serif', serif;
+  background-color: #f8f8f8;
+  color: #404040;
+}
+
+body {
+  margin: 0 auto;
+  padding: 32px;
+  max-width: 700px;
+}
+
+/* header {
+  margin: 128px auto 64px auto;
+} */
+
+header,
+footer {
+  text-align: center;
+}
+
+footer {
+  margin: 32px 0;
+  padding: 32px 0;
+  font-size: 14px;
+}
+
+nav ul {
+  margin: 0 auto;
+  padding-left: 0;
+  list-style: none;
+}
+
+main {
+  min-height: 60vh;
+}
+
+a {
+  /* color: #8599ad; */
+  color: #506fa9;
+  border-bottom: 1px solid #506fa9;
+  text-decoration: none;
+  /* text-decoration-color: #506FA9; */
+}
+
+a:hover {
+  color: #333;
+}
+
+/* a:not(article > a) {
+  border-bottom: 2px solid #506FA9;
+} */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+  color: #333;
+}
+
+img {
+  max-width: 700px;
+  width: 100%;
+}
+
+img + em {
+  font-size: 16px;
+  font-weight: 200;
+}
+
+article > p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+blockquote p {
+  font-size: 20px;
+}
+
+hr {
+  margin: 24px 0;
+  border: 4px solid #e8e8e8;
+}
+
+.text-xl {
+  font-size: 64px;
+}
+
+.text-lg {
+  font-size: 48px;
+}
+
+.text-md {
+  font-size: 28px;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-italic {
+  font-style: italic;
+  font-weight: 200;
+}
+
+.no-top-margin {
+  margin-top: 0;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  footer {
+    text-align: left;
+  }
+
+  .text-xl {
+    font-size: 32px;
+  }
+
+  .text-lg {
+    font-size: 24px;
+  }
+
+  .text-md {
+    font-size: 18px;
+  }
+}

@@ -1,15 +1,30 @@
 {
   "name": "blog",
+  "author": "Christy La Guardia",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christylaguardia/blog.git"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export"
   },
   "dependencies": {
+    "gray-matter": "^4.0.2",
     "next": "9.5.5",
+    "raw-loader": "^4.0.2",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-markdown": "^5.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
   }
 }
