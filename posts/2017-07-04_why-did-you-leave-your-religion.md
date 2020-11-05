@@ -2,7 +2,7 @@
 date: 'Jul 4, 2017'
 title: 'Why’d you leave your religion?'
 subtitle: 'Or maybe the better the question is, why’d you stay so long?'
-excerpt: 'I’ve been asked many times “Why did you leave your religion?.” My default answer has usually been something related to the false doctrine I uncovered or the controlling nature of religion or the scandalous lies told by the leaders, etc., etc., etc...'
+read_time: '2 min'
 ---
 
 ![Business Card](https://miro.medium.com/max/1400/1*Ho3gudC8IS_T-lbavgFVbQ.jpeg)

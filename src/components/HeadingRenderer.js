@@ -7,6 +7,13 @@ const flatten = (text, child) => {
     : React.Children.toArray(child.props.children).reduce(flatten, text);
 };
 
+export default function HeadingRenderer(props) {
+  const children = React.Children.toArray(props.children);
+  const text = props.children.reduce(flatten, '');
+  const slug = text.toLowerCase().replace(/\W/g, '-');
+  return React.createElement('h' + props.level, { id: slug }, children);
+}
+
 HeadingRenderer.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
@@ -14,10 +21,3 @@ HeadingRenderer.propTypes = {
   ]).isRequired,
   level: PropTypes.number.isRequired,
 };
-
-export default function HeadingRenderer(props) {
-  const children = React.Children.toArray(props.children);
-  const text = props.children.reduce(flatten, '');
-  const slug = text.toLowerCase().replace(/\W/g, '-');
-  return React.createElement('h' + props.level, { id: slug }, children);
-}

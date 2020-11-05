@@ -2,7 +2,7 @@
 date: 'Jul 5, 2017'
 title: 'Thanks Google for Helping Me Find Joel'
 subtitle: 'Leaving a cult is easier with a friend.'
-excerpt: 'One night while I was secretly investigating Jehovah’s Witnesses on the web, I decided to read about what former Jehovah’s Witnesses had to say...'
+read_time: '10 min'
 ---
 
 ![Joel and Me in Hood River, Oregon](https://miro.medium.com/max/4096/1*dZ7j5Kt4-EW3M01rbCbdvA.jpeg)

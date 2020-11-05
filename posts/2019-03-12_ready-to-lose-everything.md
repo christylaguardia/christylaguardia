@@ -2,7 +2,7 @@
 date: 'Mar 12, 2019'
 title: 'Ready to Lose Everything'
 subtitle: 'The day I hit rock bottom and decided to become an apostate.'
-excerpt: 'I parked my car along the side of the road. It was 6:15 am and the sun was starting to come up. I arrived exactly according to schedule. I was supposed to be at work at 6:30 am but I knew my absence wouldn’t be noticed for at least an hour...'
+read_time: '6 min'
 ---
 
 ![Columbia River from the Marine Drive trail in Portland, Oregon](https://miro.medium.com/max/1400/1*ITQqsnAL4XkIYAFhuDIRmw.jpeg)

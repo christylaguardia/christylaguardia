@@ -4,19 +4,9 @@ import matter from 'gray-matter';
 import Layout from '../src/components/Layout';
 import Post from '../src/components/Post';
 
-BlogPost.propTypes = {
-  frontmatter: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-  }),
-  markdownBody: PropTypes.string,
-};
+export default function BlogPost(props) {
+  const { frontmatter, markdownBody } = props;
 
-export default function BlogPost({
-  siteDescription,
-  frontmatter,
-  markdownBody,
-}) {
   if (!frontmatter) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
@@ -27,6 +17,14 @@ export default function BlogPost({
     </Layout>
   );
 }
+
+BlogPost.propTypes = {
+  frontmatter: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+  }),
+  markdownBody: PropTypes.string,
+};
 
 export async function getStaticProps({ ...ctx }) {
   const { postname } = ctx.params;

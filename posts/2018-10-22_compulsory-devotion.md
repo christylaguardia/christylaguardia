@@ -2,13 +2,13 @@
 date: 'Oct 22, 2018'
 title: 'Compulsory Devotion'
 subtitle: 'Raised in a Jehovah Witness family.'
-excerpt: 'I’ve been asked many times “Why did you leave your religion?.” My default answer has usually been something related to the false doctrine I uncovered or the controlling nature of religion or the scandalous lies told by the leaders, etc., etc., etc...'
+read_time: '5 min'
 ---
 
 ![My family and me](https://miro.medium.com/max/4660/1*K01L39SVScwSZgeN8DWQ4g.jpeg)
 _My family at a Circuit Assembly in Woodburn, Oregon, mid-90s, I’m the one with the bad hair._
 
-I was raised in a Jehovah’s Witness family. Although not universally recognized as a cult, Jehovah Witnesses fit the definition perfectly. But don’t just take my word for it, read JWfacts.
+I was raised in a Jehovah’s Witness family. Although not universally recognized as a cult, Jehovah Witnesses fit the definition perfectly. But don’t just take my word for it, read [JWfacts](https://jwfacts.com/watchtower/blog/are-jehovahs-witnesses-a-cult.php).
 
 Growing up, this meant that our lives revolved around Witness activities.
 
