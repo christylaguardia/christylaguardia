@@ -5,7 +5,7 @@ date: 11/6/2020
 read_time: '7 min'
 ---
 
-![Exiting the baptism pool]('public/img/90663574-09BA-4F31-A41D-3DD038C7D5C3.jpeg)
+![Exiting the baptism pool]('/90663574-09BA-4F31-A41D-3DD038C7D5C3.jpeg')
 _My baptism at the Tacoma Dome, Tacoma, Washington in 2003_
 
 > “Choose for yourselves today whom you will serve...But as for me and my household, we shall serve Jehovah.” - Joshua 24:15, The New World Translation of the Holy Scriptures
