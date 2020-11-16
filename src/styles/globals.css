@@ -1,8 +1,9 @@
 /*
   colors
   #fff
+  #f9f9f9
   #d3d3d3
-  #808080
+  #757575
   #202022
 */
 
@@ -52,7 +53,7 @@ a,
 a:visited,
 a:active {
   font-family: 'Roboto', serif;
-  color: #808080;
+  color: #757575;
   text-decoration: none;
 }
 
@@ -77,13 +78,17 @@ header,
 nav {
   overflow: hidden;
   background-color: #fff;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 nav ul {
   margin: 0 auto;
   padding-left: 0;
   list-style: none;
+}
+
+nav ul li {
+  display: inline;
 }
 
 article {
@@ -100,15 +105,35 @@ small {
 }
 
 blockquote {
-  border-left: 0.25rem solid #d3d3d3;
+  margin-left: 1rem;
+  background: #f9f9f9;
+  border-left: 10px solid #d3d3d3;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+  color: #d3d3d3;
+  content: '“';
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
   font-style: italic;
   font-size: 1.25rem;
-  padding-left: 0.5rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+blockquote > p:first-child {
+  display: inline;
 }
 
 img {
-  max-width: 700px;
-  width: 100%;
   border-radius: 4px;
 }
 
@@ -179,13 +204,13 @@ img + em {
   border-bottom: 0.1rem solid #d3d3d3;
   padding-bottom: 2rem;
   font-family: 'Roboto', serif;
-  font-weight: 100;
+  font-weight: 400;
   font-size: 1.3rem;
   line-height: 1.4;
 }
 
 /* mobile */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   header {
     text-align: left;
     margin: 0;
@@ -197,8 +222,8 @@ img + em {
     padding: 2rem;
   }
 
-  blockquote {
-    margin-left: 1rem;
+  nav {
+    padding: 1rem 1rem 0 1rem;
   }
 
   .columns {

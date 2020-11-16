@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Head from './Head';
 import Header from './Header';
-import Navigation from './Navigation';
 import Footer from './Footer';
 
 export const siteInfo = {
@@ -13,7 +12,7 @@ export const siteInfo = {
 };
 
 export default function Layout(props) {
-  const { pageTitle, showHeader = true, showNav = false, children } = props;
+  const { pageTitle, showHeader = true, children } = props;
   const { siteTitle, siteDescription } = siteInfo;
   const title = pageTitle ? `${siteTitle} | ${pageTitle}` : siteTitle;
 
@@ -25,7 +24,6 @@ export default function Layout(props) {
         siteDescription={siteDescription}
       />
       {showHeader && <Header siteDescription={siteDescription} />}
-      {showNav && <Navigation />}
       <main>{children}</main>
       <Footer siteTitle={siteTitle} />
     </>
@@ -35,7 +33,6 @@ export default function Layout(props) {
 Layout.propTypes = {
   pageTitle: PropTypes.string,
   showHeader: PropTypes.bool,
-  showNav: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

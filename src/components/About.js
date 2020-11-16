@@ -10,7 +10,7 @@ export default function About() {
           courage.
         </p>
         <footer>
-          —Thucydides, <cite>Book II, 2.43</cite>
+          —Thucydides
         </footer>
       </blockquote>
       <p>
@@ -24,10 +24,6 @@ export default function About() {
         Read my stories about my life as a Jehovah Witness and journey of
         self-discovery.
       </p>
-      {/* <p>
-        Read tales from my life before and after leaving the Jehovah Witnesses
-        cult.
-      </p> */}
     </section>
   );
 }

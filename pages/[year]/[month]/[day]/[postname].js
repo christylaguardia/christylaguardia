@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import matter from 'gray-matter';
-import Layout from '../src/components/Layout';
-import Post from '../src/components/Post';
+import Layout from '../../../../src/components/Layout';
+import Post from '../../../../src/components/Post';
+import createSlug from '../../../../src/helpers/createSlug';
 
 export default function BlogPost(props) {
   const { frontmatter, markdownBody } = props;
@@ -27,15 +28,19 @@ BlogPost.propTypes = {
 };
 
 export async function getStaticProps({ ...ctx }) {
-  const { postname } = ctx.params;
-
-  const content = await import(`../posts/${postname}.md`);
+  const { year, month, day, postname } = ctx.params;
+  const content = await import(`../../../../posts/${year}-${month}-${day}_${postname}.md`);
   const data = matter(content.default);
+
+  // const previousHref = keys[index - 1]; //?.slug;
+  // const nextHref = keys[index + 1]; //?.slug;
 
   return {
     props: {
       frontmatter: data.data,
       markdownBody: data.content,
+      // previousHref: '/previousHref',
+      // nextHref: '/nextHref',
     },
   };
 }
@@ -43,12 +48,9 @@ export async function getStaticProps({ ...ctx }) {
 export async function getStaticPaths() {
   const blogSlugs = ((context) => {
     const keys = context.keys();
-    const data = keys.map((key, index) => {
-      let slug = key.replace(/^.*[\\\/]/, '').slice(0, -3);
-      return slug;
-    });
-    return data;
-  })(require.context('../posts', true, /\.md$/));
+    const data = keys.map((key, index) => createSlug(key));
+    return data.map(({ slug }) => slug);
+  })(require.context('../../../../posts', true, /\.md$/));
 
   const paths = blogSlugs.map((slug) => `/${slug}`);
 

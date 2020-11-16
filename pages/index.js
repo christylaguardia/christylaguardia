@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import Layout from '../src/components/Layout';
 import About from '../src/components/About';
 import PostItem from '../src/components/PostItem';
-
+import createSlug from '../src/helpers/createSlug';
 export default function Index(props) {
   const { posts } = props;
 
@@ -16,7 +16,7 @@ export default function Index(props) {
     <Layout>
       <About />
       <section>
-        {posts.map((post) => (
+        {posts.map((post, index) => (
           <PostItem key={post.slug} {...post} />
         ))}
       </section>
@@ -45,10 +45,10 @@ export async function getStaticProps() {
 
     const data = keys
       .map((key, index) => {
-        const slug = key.replace(/^.*[\\\/]/, '').slice(0, -3);
-        const date = slug.split('_')[0];
+        const { date, slug } = createSlug(key);
         const value = values[index];
         const document = matter(value.default);
+
         return {
           frontmatter: document.data,
           markdownBody: document.content,
