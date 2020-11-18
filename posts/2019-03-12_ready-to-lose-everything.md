@@ -5,7 +5,7 @@ subtitle: 'The day I hit rock bottom and decided to become an apostate.'
 read_time: '6 min'
 ---
 
-![Columbia River from the Marine Drive trail in Portland, Oregon](/images/columbia-river.jpeg)
+![Columbia River from the Marine Drive trail in Portland, Oregon](/images/columbia-river.png)
 _Columbia River from Marine Drive trail in Portland, Oregon, photo from [imgur](https://imgur.com/ZHzQH7V)._
 
 I parked my car along the side of the road. It was 6:15 am and the sun was starting to come up. I arrived exactly according to schedule. I was supposed to be at work at 6:30 am but I knew my absence wouldn’t be noticed for at least an hour. I wanted to leave earlier but thought that would arouse suspicion. I looked out my window, staring at the gentle and peaceful waves of the Columbia River. The water would be cold, but strangely, I felt warm and peaceful knowing that after months of agony I would soon have relief.

@@ -45,7 +45,7 @@ export default function Contact() {
       <div className="share-container">
         <input
           className="share-input"
-          value={shareUrl}
+          defaultValue={shareUrl}
           onClick={event => event.target.select()}
         />
         <CopyToClipboard text={shareUrl}>

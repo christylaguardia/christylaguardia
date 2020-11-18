@@ -5,7 +5,7 @@ subtitle: 'Leaving a cult is easier with a friend.'
 read_time: '10 min'
 ---
 
-![Joel and Me in Hood River, Oregon](/images/baptism.jpeg)
+![Joel and Me in Hood River, Oregon](/images/baptism.png)
 _Skipping service and hanging out with my new apostate buddy_
 
 One night while I was secretly investigating Jehovah’s Witnesses on the web, I decided to read about what former Jehovah’s Witnesses had to say.

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-import PostNav from './PostNav';
 import HeadingRenderer from './HeadingRenderer';
 import ImageRenderer from './ImageRenderer';
 import Contact from './Contact';
@@ -9,8 +9,6 @@ import formatDate from '../helpers/formatDate';
 
 export default function Post(props) {
   const {
-    // previousHref,
-    // nextHref,
     slug,
     frontmatter: { title, subtitle, read_time, date },
     markdownBody,
@@ -32,23 +30,12 @@ export default function Post(props) {
         renderers={{
           heading: HeadingRenderer,
           image: ImageRenderer,
+          paragraph: (props) => {
+            const element = props.children[0];
+            return element?.type === 'img' ? ImageRenderer({ src: element?.props?.src, alt: element?.props?.alt }) : <p>{element}</p>;
+          },
         }}
       />
-      {/* <ReactMarkdown
-        source={markdownBody}
-        renderers={{
-          heading: HeadingRenderer,
-          // TODO: temporarily removing images
-          // image: ImageRenderer,
-          // paragraph: (props) => {
-          //   const element = props.children[0];
-          //   console.log(props)
-          //   console.log(element?.type)
-          //   // return element?.type === 'img' ? ImageRenderer(element?.props) : <p>{element}</p>;
-          //   return element?.type === 'img' ? null : <p>{element}</p>;
-          // },
-        }}
-      /> */}
       <Contact slug={slug} />
     </div>
   );
