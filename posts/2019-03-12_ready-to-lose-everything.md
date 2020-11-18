@@ -46,6 +46,4 @@ Now I live my life like I have nothing to lose. Not with recklessness, but with 
 
 I know that eventually, I will die. But when I do, I’ll be confident that I tried everything to live a happy and fulfilled life.
 
----
-
-_[This article was originally published on Medium](https://medium.com/@christylaguardia/ready-to-lose-everything-2aa073759fc5)_
+[This article was originally published on Medium](https://medium.com/@christylaguardia/ready-to-lose-everything-2aa073759fc5)

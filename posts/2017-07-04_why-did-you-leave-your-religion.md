@@ -20,6 +20,4 @@ So in order for me to muster up the courage to change my life, I felt that I had
 
 (And that’s how I know I was brainwashed.)
 
----
-
-_[This article was originally published on Medium](https://medium.com/@christylaguardia/whyd-you-leave-the-cult-1d8a654f0755)_
+[This article was originally published on Medium](https://medium.com/@christylaguardia/whyd-you-leave-the-cult-1d8a654f0755)

@@ -46,6 +46,4 @@ Over the years I learned an essential skill to be a Jehovah’s Witnesses is lea
 
 Despite my parent’s fears and criticism from the congregation elders, a college degree and a good job did not make me fall out of “the truth.” On the contrary, I was able to secure part-time hours, so I could devote the rest of my time to the ministry. Since I was becoming a master underachiever, I managed to keep my job challenging enough to stay engaged, but not challenging enough to get excited. So I worked in a kind of ambition-neutralizing environment, where I didn’t need to expend much brain power to do my job. Deep down I knew I was capable of more and owed it to myself to find out, but would never get that opportunity without leaving my family.
 
----
-
-_[This article was originally published on Medium](https://medium.com/@christylaguardia/compulsory-devotion-28a684ad15f6)_
+[This article was originally published on Medium](https://medium.com/@christylaguardia/compulsory-devotion-28a684ad15f6)

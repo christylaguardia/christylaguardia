@@ -7,16 +7,7 @@ export default function ImageRenderer(props) {
 
   if (!src || !alt) return null;
 
-  return (
-    <Image
-      className="image"
-      src={src}
-      alt={alt}
-      loading="lazy"
-      height={400}
-      width={700}
-    />
-  );
+  return <Image src={src} alt={alt} loading="lazy" height={400} width={700} />;
 }
 
 ImageRenderer.propTypes = {

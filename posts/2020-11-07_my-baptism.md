@@ -1,7 +1,6 @@
 ---
-date: 11/6/2020
+date: 11/7/2020
 title: 'My Baptism'
-subtitle: 'The sudden deaths to my past course of life and beginning of a worse one.'
 read_time: '4 min'
 ---
 

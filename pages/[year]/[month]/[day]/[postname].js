@@ -13,7 +13,7 @@ export default function BlogPost(props) {
   }
 
   return (
-    <Layout pageTitle={frontmatter.title} showHeader={false} showNav={true}>
+    <Layout pageTitle={frontmatter.title}>
       <Post frontmatter={frontmatter} markdownBody={markdownBody} />
     </Layout>
   );
@@ -32,15 +32,10 @@ export async function getStaticProps({ ...ctx }) {
   const content = await import(`../../../../posts/${year}-${month}-${day}_${postname}.md`);
   const data = matter(content.default);
 
-  // const previousHref = keys[index - 1]; //?.slug;
-  // const nextHref = keys[index + 1]; //?.slug;
-
   return {
     props: {
       frontmatter: data.data,
       markdownBody: data.content,
-      // previousHref: '/previousHref',
-      // nextHref: '/nextHref',
     },
   };
 }

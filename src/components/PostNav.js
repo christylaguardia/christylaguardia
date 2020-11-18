@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 
-export default function Navigation(props) {
+export default function PostNav(props) {
   const { previousHref, nextHref } = props;
 
   return (
@@ -33,7 +33,7 @@ export default function Navigation(props) {
   );
 }
 
-Navigation.propTypes = {
+PostNav.propTypes = {
   previousHref: PropTypes.string,
   nextHref: PropTypes.string,
 };

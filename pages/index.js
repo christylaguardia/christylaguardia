@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import matter from 'gray-matter';
 import Layout from '../src/components/Layout';
-import About from '../src/components/About';
-import PostItem from '../src/components/PostItem';
 import createSlug from '../src/helpers/createSlug';
+import sortPostsByYear from '../src/helpers/sortPostsByYear';
+import formatDate from '../src/helpers/formatDate';
 export default function Index(props) {
   const { posts } = props;
 
@@ -12,14 +13,26 @@ export default function Index(props) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
 
+  const postsByYear = sortPostsByYear(posts);
+  const years = Object.keys(postsByYear).reverse();
+
   return (
-    <Layout>
-      <About />
-      <section>
-        {posts.map((post, index) => (
-          <PostItem key={post.slug} {...post} />
-        ))}
-      </section>
+    <Layout className="blog-section">
+      {years.map((year) => (
+        <section key={year}>
+          <h2 className="blog-year">{year}</h2>
+          <ul className="blog-list">
+            {postsByYear[year].map((post) => (
+              <li key={post.slug} className="blog-list-item">
+                <Link href={{ pathname: `/${post.slug}` }}>
+                  <a>{post.frontmatter.title}</a>
+                </Link>
+                <span>{formatDate(post.date)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </Layout>
   );
 }

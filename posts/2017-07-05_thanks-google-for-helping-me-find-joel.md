@@ -80,6 +80,4 @@ Just as Joel had said, it all started to unravel. The more I dug, the more I fou
 
 But the worst realization of them all, was that I was part of the lie. Here I was, perfect little pioneer sister, with a ton of return visits, having Bible studies all the time, spreading the deception and enforcing the mind control. It made me sick to my stomach to think of all the people I convinced of JW’s doctrine. It was then that I knew it was time to head for the exit.
 
----
-
-_[This article was originally published on Medium](https://medium.com/@christylaguardia/thanks-google-for-helping-me-find-joel-23e648e05f6c)_
+[This article was originally published on Medium](https://medium.com/@christylaguardia/thanks-google-for-helping-me-find-joel-23e648e05f6c)

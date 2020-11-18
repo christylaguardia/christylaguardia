@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import Head from './Head';
-import Header from './Header';
+import TopNav from './TopNav';
 import Footer from './Footer';
 
 export const siteInfo = {
@@ -12,7 +11,7 @@ export const siteInfo = {
 };
 
 export default function Layout(props) {
-  const { pageTitle, showHeader = true, children } = props;
+  const { className, pageTitle, children } = props;
   const { siteTitle, siteDescription } = siteInfo;
   const title = pageTitle ? `${siteTitle} | ${pageTitle}` : siteTitle;
 
@@ -23,14 +22,15 @@ export default function Layout(props) {
         siteTitle={siteTitle}
         siteDescription={siteDescription}
       />
-      {showHeader && <Header siteDescription={siteDescription} />}
-      <main>{children}</main>
+      <TopNav />
+      <main className={className}>{children}</main>
       <Footer siteTitle={siteTitle} />
     </>
   );
 }
 
 Layout.propTypes = {
+  className: PropTypes.string,
   pageTitle: PropTypes.string,
   showHeader: PropTypes.bool,
   children: PropTypes.oneOfType([
