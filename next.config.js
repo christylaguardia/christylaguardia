@@ -8,23 +8,4 @@ module.exports = {
     });
     return config;
   },
-  async redirects() {
-    return [
-      {
-        source: '/:year',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/:year/:month',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/:year/:month/:day',
-        destination: '/',
-        permanent: true,
-      },
-    ];
-  },
 };

@@ -5,7 +5,7 @@ subtitle: 'Raised in a Jehovah Witness family.'
 read_time: '5 min'
 ---
 
-![My family and me](/images/family-at-woodburn.png)
+![My family and me](/family-at-woodburn.png)
 _My family at a Circuit Assembly in Woodburn, Oregon, mid-90s, I’m the one with the bad hair._
 
 I was raised in a Jehovah’s Witness family. Although not universally recognized as a cult, Jehovah Witnesses fit the definition perfectly. But don’t just take my word for it, read [JWfacts](https://jwfacts.com/watchtower/blog/are-jehovahs-witnesses-a-cult.php).
