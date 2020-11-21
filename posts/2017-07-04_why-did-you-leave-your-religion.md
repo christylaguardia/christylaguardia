@@ -1,11 +1,11 @@
 ---
-date: 'Jul 4, 2017'
+date: '7/4/2017'
 title: 'Why’d you leave your religion?'
 subtitle: 'Or maybe the better the question is, why’d you stay so long?'
 read_time: '2 min'
 ---
 
-![Business Card](/business-card.png)
+![Business Card](/business-card.png=467x700)
 _For 28 years I was totally a legit JW and I have the business cards to prove it_
 
 I’ve been asked many times “Why did you leave your religion?.” My default answer has usually been something related to the false doctrine I uncovered or the controlling nature of religion or the scandalous lies told by the leaders, etc., etc., etc.

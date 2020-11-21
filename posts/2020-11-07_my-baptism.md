@@ -4,7 +4,7 @@ title: 'My Baptism'
 read_time: '4 min'
 ---
 
-![Exiting the baptism pool](/baptism.png)
+![Exiting the baptism pool](/baptism.png=398x700)
 _My baptism at the Tacoma Dome, Tacoma, Washington in 2003_
 
 I told my parents I wanted to get baptized when I was 12 year old, proving I had dedicated myself to serving Jehovah. My older sisters were baptized at 12, and I wanted to follow in their footsteps and not be a late spiritual bloomer. In the next few years, they had both been either disfellowshipped, reproved or marked that I postponed my baptism. Eventually, my parents forced me to cut off all contact with them, since they were now labeled as bad influences. It was an incredibly difficult and confusing time for me.

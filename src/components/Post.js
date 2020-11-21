@@ -20,6 +20,7 @@ export default function Post(props) {
       {subtitle && <h2 className="article-subtitle">{subtitle}</h2>}
       <p>
         <small>
+          {/* TODO: use date from file name */}
           {date && <span>{formatDate(date)}</span>}
           {date && read_time && <span> &#8226; </span>}
           {read_time && <span>{read_time} read</span>}

@@ -29,7 +29,9 @@ BlogPost.propTypes = {
 
 export async function getStaticProps({ ...ctx }) {
   const { year, month, day, postname } = ctx.params;
-  const content = await import(`../../../../posts/${year}-${month}-${day}_${postname}.md`);
+  const content = await import(
+    `../../../../posts/${year}-${month}-${day}_${postname}.md`
+  );
   const data = matter(content.default);
 
   return {
