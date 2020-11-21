@@ -29,6 +29,7 @@ BlogPost.propTypes = {
 
 export async function getStaticProps({ ...ctx }) {
   const { year, month, day, postname } = ctx.params;
+  // eslint-disable-next-line
   const content = await import(
     `../../../../posts/${year}-${month}-${day}_${postname}.md`
   );
@@ -44,9 +45,8 @@ export async function getStaticProps({ ...ctx }) {
 
 export async function getStaticPaths() {
   const blogSlugs = ((context) => {
-    const keys = context.keys();
-    const data = keys.map((key, index) => createSlug(key));
-    return data.map(({ slug }) => slug);
+    const keys = context.keys().map((key) => createSlug(key));
+    return keys.map(({ slug }) => slug);
   })(require.context('../../../../posts', true, /\.md$/));
 
   const paths = blogSlugs.map((slug) => `/${slug}`);

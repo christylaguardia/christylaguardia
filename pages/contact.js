@@ -8,7 +8,7 @@ export default function About() {
         <h3>Want to chat?</h3>
         <p>
           <span>
-            Email is the best way to reach me, here's my email address:
+            Email is the best way to reach me, here&apos;s my email address:
           </span>
           <span> </span>
           <a

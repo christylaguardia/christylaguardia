@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import '../src/styles/globals.css';
 
 export function reportWebVitals({ id, name, label, value }) {
@@ -15,5 +17,14 @@ export function reportWebVitals({ id, name, label, value }) {
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
+
+MyApp.propTypes = {
+  Component: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element,
+    PropTypes.func,
+  ]),
+  pageProps: PropTypes.shape({}),
+};
 
 export default MyApp;

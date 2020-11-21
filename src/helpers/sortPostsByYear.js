@@ -3,7 +3,7 @@ export default function sortPostsByYear(posts) {
     (postsByYear, post) => {
       const year = parseInt(post.date.substring(0, 4), 10);
 
-      if (postsByYear.hasOwnProperty(year)) {
+      if (Object.prototype.hasOwnProperty.call(postsByYear, 'year')) {
         postsByYear[year].push(post);
       } else {
         postsByYear[year] = [post];
