@@ -8,7 +8,8 @@ import formatDate from '../helpers/formatDate';
 
 export default function Post(props) {
   const {
-    frontmatter: { title, subtitle, read_time, date },
+    date,
+    frontmatter: { title, subtitle, read_time },
     markdownBody,
   } = props;
 
@@ -16,17 +17,16 @@ export default function Post(props) {
     <div className="article">
       <h1 className="article-title">{title}</h1>
       {subtitle && <h2 className="article-subtitle">{subtitle}</h2>}
-      {date ||
-        (read_time && (
-          <p>
-            <small>
-              {/* TODO: use date from file name */}
-              {date && <span>{formatDate(date)}</span>}
-              {date && read_time && <span> &#8226; </span>}
-              {read_time && <span>{read_time} read</span>}
-            </small>
-          </p>
-        ))}
+      {(date || read_time) && (
+        <p>
+          <small>
+            {/* TODO: use date from file name */}
+            {date && <span>{formatDate(date)}</span>}
+            {date && read_time && <span> &#8226; </span>}
+            {read_time && <span>{read_time} read</span>}
+          </small>
+        </p>
+      )}
       <ReactMarkdown
         source={markdownBody}
         renderers={{
@@ -54,10 +54,10 @@ export default function Post(props) {
 Post.propTypes = {
   previousHref: PropTypes.string,
   nextHref: PropTypes.string,
+  date: PropTypes.string,
   frontmatter: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
-    date: PropTypes.string,
     read_time: PropTypes.string,
   }),
   markdownBody: PropTypes.string,

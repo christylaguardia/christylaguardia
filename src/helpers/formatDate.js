@@ -14,8 +14,8 @@ const months = [
 ];
 
 /**
- * There are two types of date formats, used in posts and file names
- * This helper parses the string and formats like "November, 7, 2020"
+ * This helper parses the date string like "2020-11-07"
+ * and formats like "November, 7, 2020"
  * @param {string} dateString
  */
 
@@ -24,28 +24,16 @@ export default function formatDate(dateString) {
     return null;
   }
 
-  let year, month, day;
+  const splitDate = dateString.split('-');
+  const year = parseInt(splitDate[0], 10);
+  const month = parseInt(splitDate[1], 10);
+  const monthIndex = month - 1;
+  const day = parseInt(splitDate[2], 10);
+  const date = new Date(year, monthIndex, day);
 
-  // Date is formatted like 2020-11-07
-  if (dateString.indexOf('-')) {
-    const splitDate = dateString.split('-');
-    year = splitDate[0];
-    month = splitDate[1];
-    day = splitDate[2];
-  }
-
-  // Date is formatted like 11/07/2020
-  if (dateString.indexOf('-')) {
-    const splitDate = dateString.split('/');
-    year = splitDate[2];
-    month = splitDate[0] - 1;
-    day = splitDate[1];
-  }
-
-  if (year === undefined || month === undefined || day === undefined) {
+  if (!date) {
     return null;
   }
 
-  const date = new Date(year, month, day);
   return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }

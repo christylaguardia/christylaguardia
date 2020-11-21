@@ -1,5 +1,4 @@
 ---
-date: '3/12/2019'
 title: 'Ready to Lose Everything'
 subtitle: 'The day I hit rock bottom and decided to become an apostate.'
 read_time: '6 min'

@@ -1,5 +1,4 @@
 ---
-date: '7/5/2017'
 title: 'Thanks Google for Helping Me Find Joel'
 subtitle: 'Leaving a cult is easier with a friend.'
 read_time: '10 min'

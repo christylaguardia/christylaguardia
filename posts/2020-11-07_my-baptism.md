@@ -1,5 +1,4 @@
 ---
-date: 11/7/2020
 title: 'My Baptism'
 read_time: '4 min'
 ---

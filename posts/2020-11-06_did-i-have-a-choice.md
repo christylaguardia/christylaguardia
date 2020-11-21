@@ -1,5 +1,4 @@
 ---
-date: 11/6/2020
 title: 'Did I Have a Choice to Become a Jehovah Witness?'
 read_time: '3 min'
 ---

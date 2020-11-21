@@ -1,5 +1,4 @@
 ---
-date: '7/4/2017'
 title: 'Why’d you leave your religion?'
 subtitle: 'Or maybe the better the question is, why’d you stay so long?'
 read_time: '2 min'

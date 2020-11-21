@@ -1,5 +1,4 @@
 ---
-date: '10/22/2018'
 title: 'Compulsory Devotion'
 subtitle: 'Raised in a Jehovah Witness family.'
 read_time: '5 min'

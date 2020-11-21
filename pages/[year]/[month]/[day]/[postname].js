@@ -6,7 +6,7 @@ import Post from '../../../../src/components/Post';
 import createSlug from '../../../../src/helpers/createSlug';
 
 export default function BlogPost(props) {
-  const { frontmatter, markdownBody } = props;
+  const { date, frontmatter, markdownBody } = props;
 
   if (!frontmatter) {
     return <p>Uh Oh! Something went wrong :(</p>;
@@ -14,29 +14,31 @@ export default function BlogPost(props) {
 
   return (
     <Layout pageTitle={frontmatter.title}>
-      <Post frontmatter={frontmatter} markdownBody={markdownBody} />
+      <Post date={date} frontmatter={frontmatter} markdownBody={markdownBody} />
     </Layout>
   );
 }
 
 BlogPost.propTypes = {
+  date: PropTypes.string.isRequired,
   frontmatter: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
   }),
   markdownBody: PropTypes.string,
 };
 
 export async function getStaticProps({ ...ctx }) {
   const { year, month, day, postname } = ctx.params;
+  const date = `${year}-${month}-${day}`;
   // eslint-disable-next-line
   const content = await import(
-    `../../../../posts/${year}-${month}-${day}_${postname}.md`
+    `../../../../posts/${date}_${postname}.md`
   );
   const data = matter(content.default);
 
   return {
     props: {
+      date,
       frontmatter: data.data,
       markdownBody: data.content,
     },
