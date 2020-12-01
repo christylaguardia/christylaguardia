@@ -1,5 +1,5 @@
 ---
-title: 'Thoughts on Amber Scorah's "Leaving the Witness"'
+title: "Thoughts on Amber Scorah's “Leaving the Witness“"
 read_time: '10 min'
 ---
 
