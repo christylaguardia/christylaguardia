@@ -1,6 +1,6 @@
 ---
-title: "Thoughts on Amber Scorah's “Leaving the Witness“"
-read_time: '10 min'
+title: "Thoughts on Amber Scorah's “Leaving the Witness”"
+read_time: "10 min"
 ---
 
 I recently read Amber Scorah’s memoir *[Leaving the Witness: Exiting a Religion and Finding a Life](https://a.co/2DpMFkn)* and thought I share some of my highlights about her story and how it helped me reflect on my own. **If you haven’t read it yet, be aware there are spoilers!**
