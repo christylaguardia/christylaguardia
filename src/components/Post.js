@@ -32,18 +32,18 @@ export default function Post(props) {
         renderers={{
           heading: HeadingRenderer,
           image: ImageRenderer,
-          paragraph: (paragraphProps) => {
-            const element = paragraphProps.children[0];
-            return element?.type === 'img' ? (
-              // TODO: fix the error "Warning: validateDOMNesting(...): <div> cannot appear as a descendant of <p>."
-              ImageRenderer({
-                src: element?.props?.src,
-                alt: element?.props?.alt,
-              })
-            ) : (
-              <p>{element}</p>
-            );
-          },
+          // TODO: fix the error "Warning: validateDOMNesting(...): <div> cannot appear as a descendant of <p>."
+          // paragraph: (paragraphProps) => {
+          //   const element = paragraphProps.children[0];
+          //   return element?.type === 'img' ? (
+          //     ImageRenderer({
+          //       src: element?.props?.src,
+          //       alt: element?.props?.alt,
+          //     })
+          //   ) : (
+          //     <p>{element}</p>
+          //   );
+          // },
         }}
       />
       <Share />

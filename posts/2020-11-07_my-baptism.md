@@ -20,7 +20,7 @@ The day of my baptism was one of the saddest days I can remember. My parents all
 
 In a sense, my baptism was a true baptism. Since, it was the beginning of my life of “choosing to serve Jehovah” over my relationships with my sisters and the freedom to choose what I wanted in life.
 
-In the article [You Have No Choice](https://www.psychologytoday.com/us/blog/in-control/201609/you-have-no-choices), Dr. Timothy A Carey discusses how we have a lot less choice in our lives than we may think. When we’ve chosen a path in life, it may come with limitations. He goes on to say:
+In the article [You Have No Choice](https://www.psychologytoday.com/blog/in-control/201609/you-have-no-choice?eml), Dr. Timothy A Carey discusses how we have a lot less choice in our lives than we may think. When we’ve chosen a path in life, it may come with limitations. He goes on to say:
 
 > The crucial point then is not really whether or not our choices are limited. Rather, the main issue may be who is limiting the choices in our lives. If we are constraining our own choices by selecting certain preferences in order to live the life we want then it won’t even feel like our choices are limited. If another person, however, is telling us what our choices should be or need to be, or what our range of options are, this is likely to be another matter entirely.
 
