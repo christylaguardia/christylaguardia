@@ -3,7 +3,7 @@ title: "Thoughts on Amber Scorah's “Leaving the Witness“"
 read_time: '10 min'
 ---
 
-I recently read Amber Scorah’s memoir [*Leaving the Witness: Exiting a Religion and Finding a Life*](https://a.co/2DpMFkn) and thought I share some of my highlights about her story and how it helped me reflect on my own. **If you haven’t read it yet, be aware there are spoilers!**
+I recently read Amber Scorah’s memoir *[Leaving the Witness: Exiting a Religion and Finding a Life](https://a.co/2DpMFkn)* and thought I share some of my highlights about her story and how it helped me reflect on my own. **If you haven’t read it yet, be aware there are spoilers!**
 
 Amber was raised a Witness, and although her parents were inactive, her grandmother made sure to indoctrinate her. As a teenager, she formed a romantic relationship with an older Witness man, which eventually lead to both of their disfellowshipping. When the relationship ended, she returned to the congregation and married a spiritually strong brother, whom she did not love. Preaching became their focus and their pioneer careers led them to Shanghai as incognito missionaries, where she finally awakened.
 
