@@ -9,8 +9,7 @@ Amber was raised a Witness, and although her parents were inactive, her grandmot
 
 I actually remember hearing of a Pioneer in China going apostate when I was a Witness. Missionaries turning apostate during their assignment in a foreign land was also something I heard about over the years, but of course, I don’t remember reading anything about this sort of thing in publications, just some service car backseat whispers.
 
-On the other hand, white Pioneers in the Chinese congregation or groups going to China, are a whole type of Witness. What she doesn’t say in her book is that these types of 
-s are considered badasses, even by Witness standards. They get all the work of being a missionary without the privilege and status that comes with being a Gilead School graduate. Since they have to go on their own, they don’t have access to the financial or legal resources afforded by the Watchtower society.
+On the other hand, white Pioneers in the Chinese congregation or groups going to China, are a whole type of Witness. What she doesn’t say in her book is that these types of Pioneers are considered badasses, even by Witness standards. They get all the work of being a missionary without the privilege and status that comes with being a Gilead School graduate. Since they have to go on their own, they don’t have access to the financial or legal resources afforded by the Watchtower society.
 
 Maybe since she was previously disfellowshipped, she didn’t qualify to apply to Gilead to take the traditional route to becoming a JW missionary. Learning Mandarin and serving as a Pioneer in Taiwan was an alternate route. I can’t imagine she would be the Bethel worker type, so serving in China would probably be the most exotic and highest level of privilege she could reach.
 
