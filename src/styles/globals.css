@@ -52,7 +52,7 @@ a:active {
 }
 
 .footer {
-  margin-top: 4rem;
+  margin-top: 1rem;
   margin-bottom: 4rem;
   border-top: 2px solid #757575;
 }
@@ -133,42 +133,6 @@ a:active {
   margin: 4rem 0;
 }
 
-.share-container {
-  display: flex;
-  align-items: baseline;
-  font-family: 'IBM Plex Serif', serif;
-}
-
-.share-label {
-  margin-bottom: 0;
-}
-
-.share-input {
-  flex-grow: 2;
-  margin-right: 0.5rem;
-  background-color: #fff;
-  padding: 0.5rem 1rem;
-}
-
-.share-input,
-.share-button {
-  font-size: 1rem;
-  border: 1px solid #202022;
-  border-radius: 2px;
-  height: 100%;
-}
-
-.share-button {
-  color: white;
-  background-color: #202022;
-  padding: 0.5rem 1rem;
-}
-
-.share-button:hover {
-  color: #fff;
-  background-color: #757575;
-}
-
 .article {
   padding: 0 2px;
 }
@@ -224,6 +188,28 @@ blockquote > p:first-child {
 
 blockquote > footer {
   margin-top: 1rem;
+}
+
+.share-container {
+  margin-top: 4rem;
+  border-top: 2px solid #757575;
+}
+
+.share-container a {
+  font-style: italic;
+}
+
+.share-button {
+  border: none;
+  background-color: inherit;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+  color: #202022;
+  font-family: 'Roboto', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  text-decoration: underline;
 }
 
 /* mobile */

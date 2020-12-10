@@ -14,40 +14,42 @@ export default function Post(props) {
   } = props;
 
   return (
-    <div className="article">
-      <h1 className="article-title">{title}</h1>
-      {subtitle && <h2 className="article-subtitle">{subtitle}</h2>}
-      {(date || read_time) && (
-        <p>
-          <small>
-            {/* TODO: use date from file name */}
-            {date && <span>{formatDate(date)}</span>}
-            {date && read_time && <span> &#8226; </span>}
-            {read_time && <span>{read_time} read</span>}
-          </small>
-        </p>
-      )}
-      <ReactMarkdown
-        source={markdownBody}
-        renderers={{
-          heading: HeadingRenderer,
-          image: ImageRenderer,
-          // TODO: fix the error "Warning: validateDOMNesting(...): <div> cannot appear as a descendant of <p>."
-          // paragraph: (paragraphProps) => {
-          //   const element = paragraphProps.children[0];
-          //   return element?.type === 'img' ? (
-          //     ImageRenderer({
-          //       src: element?.props?.src,
-          //       alt: element?.props?.alt,
-          //     })
-          //   ) : (
-          //     <p>{element}</p>
-          //   );
-          // },
-        }}
-      />
-      <Share />
-    </div>
+    <>
+      <div className="article">
+        <h1 className="article-title">{title}</h1>
+        {subtitle && <h2 className="article-subtitle">{subtitle}</h2>}
+        {(date || read_time) && (
+          <p>
+            <small>
+              {/* TODO: use date from file name */}
+              {date && <span>{formatDate(date)}</span>}
+              {date && read_time && <span> &#8226; </span>}
+              {read_time && <span>{read_time} read</span>}
+            </small>
+          </p>
+        )}
+        <ReactMarkdown
+          source={markdownBody}
+          renderers={{
+            heading: HeadingRenderer,
+            image: ImageRenderer,
+            // TODO: fix the error "Warning: validateDOMNesting(...): <div> cannot appear as a descendant of <p>."
+            // paragraph: (paragraphProps) => {
+            //   const element = paragraphProps.children[0];
+            //   return element?.type === 'img' ? (
+            //     ImageRenderer({
+            //       src: element?.props?.src,
+            //       alt: element?.props?.alt,
+            //     })
+            //   ) : (
+            //     <p>{element}</p>
+            //   );
+            // },
+          }}
+        />
+      </div>
+      <Share title={title} />
+    </>
   );
 }
 

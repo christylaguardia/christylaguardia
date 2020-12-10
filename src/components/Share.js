@@ -2,48 +2,57 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-export default function Share() {
+export default function Share(props) {
+  const { title } = props;
   const {
     query: { year, month, day, postname },
   } = useRouter();
   const shareUrl = `https://christylaguardia.com/${year}/${month}/${day}/${postname}`;
 
   return (
-    <div className="contact">
+    <div className="share-container">
       <p>
         <span>Thoughts? I&apos;d love to hear them! Send me an </span>
         <a
           target="_blank"
           rel="noreferrer"
-          href="mailto:christinelaguardia@gmail.com"
+          href={`mailto:christinelaguardia@gmail.com?subject=${title}&body=${shareUrl}`}
         >
           email
         </a>
-        <span> or a </span>
+        .
+      </p>
+      <p>
+        <span>Share this article on </span>
+        <a
+          className="twitter-share-button"
+          target="_blank"
+          rel="noreferrer"
+          href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${title}`}
+        >
+          Twitter
+        </a>
+        <span> • </span>
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://twitter.com/intent/tweet?screen_name=christylga&ref_src=twsrc%5Etfw"
+          href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
         >
-          tweet
+          Facebook
         </a>
-        .
-      </p>
-
-      <label htmlFor="share-url" className="share-label">
-        Share this article:
-      </label>
-      <div className="share-container">
-        <input
-          name="share-url"
-          className="share-input"
-          defaultValue={shareUrl}
-          onClick={(event) => event.target.select()}
-        />
+        <span> • </span>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${title}`}
+        >
+          LinkedIn
+        </a>
+        <span> • </span>
         <CopyToClipboard text={shareUrl}>
-          <button className="share-button">Copy</button>
+          <button className="share-button">Copy link</button>
         </CopyToClipboard>
-      </div>
+      </p>
     </div>
   );
 }
