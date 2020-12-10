@@ -7,9 +7,7 @@ These days, I rarely tell people I meet, acquaintance or colleagues about my shu
 
 Today, I *really* want to be my authentic self and wear my freedom story on my sleeve, but I dread hearing these comments again. I think the issue is that identifying as a “cult survivor,” means that we need to become a “cult educator.” Which can be a tall order when you’re in the process of recovery. Ideally, I would be able to tell people about myself without a 30 minute PowerPoint presentation on the BITE model.
 
-In an effort to help myself be prepared for this I came a *Reasoning from the Scripture* style responses.
-
-## How You Might Respond to Potential Cult Conversation Stoppers (Made by Ignorant or Shitting People that Invalidate Your Religious Abuse and Hinder Your Recovery from the Cult So You Really Don’t Want to Have This Conversation)
+In an effort to help myself be prepared for this I invented *Reasoning from the Scripture* style responses to get out of talking with these ingorant or shitty people.
 
 ### You’re fine now, so like what’s the problem?
 
