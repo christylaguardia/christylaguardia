@@ -1,5 +1,5 @@
 ---
-title: 'I do not want to talk about cults'
+title: 'How You Might Respond to Potential Cult Conversation Stoppers'
 read_time: '5 min'
 ---
 
@@ -9,7 +9,7 @@ Today, I *really* want to be my authentic self and wear my freedom story on my s
 
 In an effort to help myself be prepared for this I came a *Reasoning from the Scripture* style responses.
 
-## Potential Cult Conversation Stoppers (Made by Ignorant or Shitting People that Invalidate Your Religious Abuse and Hinder Your Recovery from the Cult So You Really Don’t Want to Have This Conversation)
+## How You Might Respond to Potential Cult Conversation Stoppers (Made by Ignorant or Shitting People that Invalidate Your Religious Abuse and Hinder Your Recovery from the Cult So You Really Don’t Want to Have This Conversation)
 
 ### You’re fine now, so like what’s the problem?
 
