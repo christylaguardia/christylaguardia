@@ -14,10 +14,17 @@ export default function About() {
         </blockquote>
         <p>
           I was raised in a Jehovah Witness family and served as a regular
-          pioneer and engineering volunteer on the Regional Building Committee
-          in Portland, Oregon. Five years ago, at the height of my Theocratic
-          career, I left it all behind to start a new life, free from my
-          controlling family and religion.
+          pioneer and volunteer drafter in Portland, Oregon. At the height of my
+          Theocratic career, I left it all behind to start a new life, free from
+          my controlling family and religion and resulting in being totally
+          shunned by everyone I knew.
+        </p>
+        <p>
+          In the five years since then I've been busy building a new life. I've
+          had many firsts as I've been learning what freedom is. I met the love
+          of my life, started traveling and started a new career as a software
+          engineer. Currently, I work as a Software Engineer and live in
+          Missoula, Montana with my partner Joel and our beagle, Charlie.
         </p>
         <p>
           My blog post are mostly stories about my life as a Jehovah Witness and
