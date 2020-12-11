@@ -5,9 +5,9 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 export default function Share(props) {
   const { title } = props;
   const {
-    query: { year, month, day, postname },
+    query: { slug },
   } = useRouter();
-  const shareUrl = `https://christylaguardia.com/${year}/${month}/${day}/${postname}`;
+  const shareUrl = `https://christylaguardia.com/${slug}`;
 
   return (
     <div className="share-container">
@@ -32,7 +32,7 @@ export default function Share(props) {
         >
           Twitter
         </a>
-        <span> • </span>
+        <span> &#8226; </span>
         <a
           target="_blank"
           rel="noreferrer"
@@ -40,7 +40,7 @@ export default function Share(props) {
         >
           Facebook
         </a>
-        <span> • </span>
+        <span> &#8226; </span>
         <a
           target="_blank"
           rel="noreferrer"
@@ -48,7 +48,7 @@ export default function Share(props) {
         >
           LinkedIn
         </a>
-        <span> • </span>
+        <span> &#8226; </span>
         <CopyToClipboard text={shareUrl}>
           <button className="share-button">Copy link</button>
         </CopyToClipboard>

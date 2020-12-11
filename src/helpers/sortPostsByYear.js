@@ -1,7 +1,10 @@
 export default function sortPostsByYear(posts) {
   return posts.reduce(
     (postsByYear, post) => {
-      const year = parseInt(post.date.substring(0, 4), 10);
+      // Draft posts don't have a publish date
+      if (!post.fields.publishDate) return postsByYear;
+
+      const year = parseInt(post.fields.publishDate.substring(0, 4), 10);
 
       if (Object.prototype.hasOwnProperty.call(postsByYear, year)) {
         postsByYear[year].push(post);
@@ -11,6 +14,6 @@ export default function sortPostsByYear(posts) {
 
       return postsByYear;
     },
-    { 2020: [] }
+    {}
   );
 }

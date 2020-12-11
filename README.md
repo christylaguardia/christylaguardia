@@ -6,7 +6,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Create a `.env.local` with the following variables:
+
+```txt
+NEXT_PUBLIC_CONTENTFUL_SPACE_ID=
+NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=
+```
+
+Run the development server:
 
 ```bash
 yarn install
@@ -17,25 +24,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Posts
+## Blog Posts
 
-New posts can be added as markdown files in the `/posts` folder. Files prefixed with `DRAFT_` won't appear on the homepage.
+New posts can be added as in Contentful.
 
-### Template
+### Read time
 
-File name: `YYYY-MM-DD_Title-Separated-By-Dashes.md`
+Use [Read-O-Meter](https://niram.org/read/) to get the value for the `readTime` field.
 
-```md
----
-title: 'Title of Article'
-subtitle: 'Optional subtitle for this article.'
-read_time: 'X min'
----
+## References
 
-![Image Alt Text](/image=name.png=HeightxWidth)
-_Image Caption._
-
-Article body goes here...
-```
-
-Use [Read-O-Meter](https://niram.org/read/) to get the `read_time`.
+* https://heymike.dev/post/build-a-static-blog-with-next-js-and-contentful-part-two-next-js
+* https://www.netlify.com/blog/2020/08/17/integrate-next.js-contentful/
