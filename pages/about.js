@@ -23,8 +23,8 @@ export default function About() {
           In the five years since then I've been busy building a new life. I've
           had many firsts as I've been learning what freedom is. I met the love
           of my life, started traveling and started a new career as a software
-          engineer. Currently, I work as a Software Engineer and live in
-          Missoula, Montana with my partner Joel and our beagle, Charlie.
+          engineer. Currently, I live in Missoula, Montana with my partner Joel
+          and our beagle, Charlie.
         </p>
         <p>
           My blog post are mostly stories about my life as a Jehovah Witness and

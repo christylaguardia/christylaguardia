@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import matter from 'gray-matter';
 import Layout from '../src/components/Layout';
-import createSlug from '../src/helpers/createSlug';
 import sortPostsByYear from '../src/helpers/sortPostsByYear';
 import formatDate from '../src/helpers/formatDate';
-export default function Index(props) {
-  const { posts } = props;
 
+export default function Index({ posts }) {
   if (posts === 'undefined' || !posts) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
@@ -22,14 +19,18 @@ export default function Index(props) {
         <section key={year}>
           <h2 className="blog-year">{year}</h2>
           <ul className="blog-list">
-            {postsByYear[year].map((post) => (
-              <li key={post.slug} className="blog-list-item">
-                <Link href={{ pathname: `/${post.slug}` }}>
-                  <a>{post.frontmatter.title}</a>
-                </Link>
-                <span>{formatDate(post.date)}</span>
-              </li>
-            ))}
+            {postsByYear[year].map(
+              ({ fields: { slug, title, publishDate, readTime } }) => (
+                <li key={slug} className="blog-list-item">
+                  <Link href={{ pathname: slug }}>
+                    <a>{title}</a>
+                  </Link>
+                  <span>{formatDate(publishDate)}</span>
+                  {/* TODO: */}
+                  {/* <span>{readTime} min read</span> */}
+                </li>
+              )
+            )}
           </ul>
         </section>
       ))}
@@ -40,40 +41,26 @@ export default function Index(props) {
 Index.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
-      frontmatter: PropTypes.shape({
+      fields: PropTypes.shape({
+        slug: PropTypes.string,
         title: PropTypes.string,
-        subtitle: PropTypes.string,
-        date: PropTypes.string,
+        publishDate: PropTypes.string,
       }),
-      date: PropTypes.string,
-      slug: PropTypes.string,
     })
   ),
 };
 
 export async function getStaticProps() {
-  const posts = ((context) => {
-    const keys = context.keys();
-    const values = keys.map(context);
+  // Create an instance of the Contentful JavaScript SDK
+  const client = require('contentful').createClient({
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+  });
 
-    const data = keys
-      .map((key, index) => {
-        const { date, slug } = createSlug(key);
-        const value = values[index];
-        const document = matter(value.default);
-
-        return {
-          frontmatter: document.data,
-          markdownBody: document.content,
-          slug,
-          date,
-        };
-      })
-      .filter(({ date }) => date !== 'DRAFT') // Don't show drafts
-      .reverse(); // Show in descending order
-
-    return data;
-  })(require.context('../posts', true, /\.md$/));
+  // Fetch all entries of content_type `blogPost`
+  const posts = await client
+    .getEntries({ content_type: 'blogPost' })
+    .then((response) => response.items);
 
   return {
     props: {
