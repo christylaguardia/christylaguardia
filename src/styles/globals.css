@@ -224,6 +224,14 @@ blockquote > footer {
   text-decoration: underline;
 }
 
+.image-container {
+  margin: 4px 0;
+}
+
+.image-container figcaption {
+  margin: 4px 0;
+}
+
 /* mobile */
 @media only screen and (max-width: 750px) {
   nav,

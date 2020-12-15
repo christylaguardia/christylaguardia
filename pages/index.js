@@ -20,10 +20,12 @@ export default function Index({ posts }) {
           <h2 className="blog-year">{year}</h2>
           <ul className="blog-list">
             {postsByYear[year].map(
-              ({ fields: { slug, title, publishDate, readTime } }) => (
+              ({ fields: { slug, title, publishDate } }) => (
                 <li key={slug} className="blog-list-item">
-                  <Link href={{ pathname: slug }}>
-                    <a>{title}</a>
+                  <Link href={{ pathname: `/blog/${slug}` }}>
+                    <a href={`https://christylaguardia.com/blog/${slug}`}>
+                      {title}
+                    </a>
                   </Link>
                   <span>{formatDate(publishDate)}</span>
                   {/* TODO: */}

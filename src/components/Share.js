@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
@@ -56,3 +57,7 @@ export default function Share(props) {
     </div>
   );
 }
+
+Share.propTypes = {
+  title: PropTypes.string,
+};

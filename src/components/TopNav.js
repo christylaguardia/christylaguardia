@@ -11,11 +11,6 @@ export default function TopNav() {
           </Link>
         </li>
         <li className="top-nav-item">
-          <Link href={{ pathname: '/' }}>
-            <a href="https://christylaguardia.com/">Blog</a>
-          </Link>
-        </li>
-        <li className="top-nav-item">
           <Link href={{ pathname: '/about' }}>
             <a href="https://christylaguardia.com/about">About</a>
           </Link>
