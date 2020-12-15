@@ -1,95 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
-import Image from 'next/image';
 import Layout from '../src/components/Layout';
+import HeroImage from '../src/components/HeroImage';
 
-export default function About({ person }) {
+export default function About(props) {
   const {
-    fields: {
-      image,
-      shortBio,
-      email,
-      medium,
-      facebook,
-      instagram,
-      twitter,
-      linkedIn,
-      portfolio,
+    person: {
+      fields: { image, shortBio },
     },
-  } = person;
-
-  const links = [
-    { href: medium, name: 'Medium' },
-    { href: facebook, name: 'Facebook' },
-    { href: instagram, name: 'Instagram' },
-    { href: twitter, name: 'Twitter' },
-    { href: linkedIn, name: 'LinkedIn' },
-  ];
-
-  const renderImage = (image) => {
-    const {
-      fields: {
-        title: imgTitle,
-        file: {
-          url,
-          details: {
-            image: { height, width },
-          },
-        },
-      },
-    } = image;
-
-    return (
-      <figure className="image-container">
-        <Image
-          src={`https:${url}`}
-          alt={imgTitle}
-          loading="lazy"
-          layout="responsive"
-          height={height}
-          width={width}
-        />
-      </figure>
-    );
-  };
+  } = props;
 
   return (
     <Layout>
       <section className="about">
-        {renderImage(image)}
+        <HeroImage image={image} />
         <Markdown source={shortBio} escapeHtml={true} />
-      </section>
-
-      <section className="contact">
-        <h3>Want to chat?</h3>
-        <p>
-          <span>
-            Email is the best way to reach me, here&apos;s my email address:
-          </span>
-          <span> </span>
-          <a href={`mailto:${email}`} target="_blank" rel="noreferrer">
-            {email}
-          </a>
-        </p>
-
-        <p>You can also find me here:</p>
-
-        {links.map(({ href, name }) => (
-          <p key={name}>
-            <a href={href} target="_blank" rel="noreferrer">
-              {name}
-            </a>
-          </p>
-        ))}
-
-        <p>
-          <span>Want to know even more about me?</span>
-          <span> </span>
-          <a href={portfolio} target="_blank" rel="noreferrer">
-            Check out my portfolio.
-          </a>
-        </p>
       </section>
     </Layout>
   );
@@ -98,21 +24,7 @@ export default function About({ person }) {
 About.propTypes = {
   person: PropTypes.shape({
     fields: PropTypes.shape({
-      image: PropTypes.shape({
-        fields: PropTypes.shape({
-          title: PropTypes.string,
-          description: PropTypes.string,
-          file: PropTypes.shape({
-            url: PropTypes.string,
-            details: PropTypes.shape({
-              image: PropTypes.shape({
-                height: PropTypes.number,
-                width: PropTypes.number,
-              }),
-            }),
-          }),
-        }),
-      }),
+      image: PropTypes.object,
       shortBio: PropTypes.string,
       email: PropTypes.string,
       medium: PropTypes.string,
