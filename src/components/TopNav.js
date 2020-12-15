@@ -7,12 +7,12 @@ export default function TopNav() {
       <ul className="top-nav">
         <li className="top-nav-item">
           <Link href={{ pathname: '/' }}>
-            <a>Christy La&nbsp;Guardia</a>
+            <a href="https://christylaguardia.com/">Christy La&nbsp;Guardia</a>
           </Link>
         </li>
         <li className="top-nav-item">
           <Link href={{ pathname: '/about' }}>
-            <a>About</a>
+            <a href="https://christylaguardia.com/about">About</a>
           </Link>
         </li>
       </ul>

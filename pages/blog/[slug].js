@@ -75,7 +75,7 @@ Slug.propTypes = {
       body: PropTypes.string,
       heroImage: PropTypes.shape({
         fields: PropTypes.shape({
-          tile: PropTypes.string,
+          title: PropTypes.string,
           file: PropTypes.shape({
             url: PropTypes.string,
             details: PropTypes.shape({

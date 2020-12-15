@@ -7,7 +7,7 @@ export default function Head(props) {
 
   return (
     <NextHead>
-      <meta charset="UTF-8" />
+      <meta charSet="UTF-8" />
       <meta name="description" content={siteDescription} />
       <meta name="author" content={siteTitle} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />

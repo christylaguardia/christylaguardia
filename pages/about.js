@@ -96,29 +96,32 @@ export default function About({ person }) {
 }
 
 About.propTypes = {
-  fields: PropTypes.shape({
-    image: PropTypes.shape({
-      fields: PropTypes.shape({
-        tile: PropTypes.string,
-        file: PropTypes.shape({
-          url: PropTypes.string,
-          details: PropTypes.shape({
-            image: PropTypes.shape({
-              height: PropTypes.number,
-              width: PropTypes.number,
+  person: PropTypes.shape({
+    fields: PropTypes.shape({
+      image: PropTypes.shape({
+        fields: PropTypes.shape({
+          title: PropTypes.string,
+          description: PropTypes.string,
+          file: PropTypes.shape({
+            url: PropTypes.string,
+            details: PropTypes.shape({
+              image: PropTypes.shape({
+                height: PropTypes.number,
+                width: PropTypes.number,
+              }),
             }),
           }),
         }),
       }),
+      shortBio: PropTypes.string,
+      email: PropTypes.string,
+      medium: PropTypes.string,
+      facebook: PropTypes.string,
+      instagram: PropTypes.string,
+      twitter: PropTypes.string,
+      linkedIn: PropTypes.string,
+      portfolio: PropTypes.string,
     }),
-    shortBio: PropTypes.string,
-    email: PropTypes.string,
-    medium: PropTypes.string,
-    facebook: PropTypes.string,
-    instagram: PropTypes.string,
-    twitter: PropTypes.string,
-    linkedIn: PropTypes.string,
-    portfolio: PropTypes.string,
   }),
 };
 
