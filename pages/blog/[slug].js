@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 import Image from 'next/image';
-import formatDate from '../src/helpers/formatDate';
-import Layout from '../src/components/Layout';
-import Share from '../src/components/Share';
+import formatDate from '../../src/helpers/formatDate';
+import Layout from '../../src/components/Layout';
+import Share from '../../src/components/Share';
 
 export default function Slug({ post }) {
   if (post === 'undefined' || !post) {
