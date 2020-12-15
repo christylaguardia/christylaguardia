@@ -15,6 +15,11 @@ export default function TopNav() {
             <a href="https://christylaguardia.com/about">About</a>
           </Link>
         </li>
+        <li className="top-nav-item">
+          <Link href={{ pathname: '/contact' }}>
+            <a href="https://christylaguardia.com/contact">Contact</a>
+          </Link>
+        </li>
       </ul>
     </nav>
   );

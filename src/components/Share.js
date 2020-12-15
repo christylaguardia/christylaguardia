@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'propTypes';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 

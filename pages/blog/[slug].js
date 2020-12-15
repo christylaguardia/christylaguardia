@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
-import Image from 'next/image';
 import formatDate from '../../src/helpers/formatDate';
 import Layout from '../../src/components/Layout';
+import HeroImage from '../../src/components/HeroImage';
 import Share from '../../src/components/Share';
 
 export default function Slug({ post }) {
@@ -13,35 +13,6 @@ export default function Slug({ post }) {
   const {
     fields: { title, publishDate: date, readTime, body, heroImage },
   } = post;
-
-  const renderImage = (heroImage) => {
-    const {
-      fields: {
-        title,
-        description,
-        file: {
-          url,
-          details: {
-            image: { height, width },
-          },
-        },
-      },
-    } = heroImage;
-
-    return (
-      <figure className="image-container">
-        <Image
-          src={`https:${url}`}
-          alt={title}
-          loading="lazy"
-          layout="responsive"
-          height={height}
-          width={width}
-        />
-        <figcaption>{description}</figcaption>
-      </figure>
-    );
-  };
 
   return (
     <Layout pageTitle={title}>
@@ -56,7 +27,7 @@ export default function Slug({ post }) {
             </small>
           </p>
         )}
-        {heroImage && renderImage(heroImage)}
+        {heroImage && <HeroImage image={heroImage} />}
         <section>
           <Markdown source={body} escapeHtml={true} />
         </section>
@@ -73,20 +44,7 @@ Slug.propTypes = {
       publishDate: PropTypes.string,
       readTime: PropTypes.number,
       body: PropTypes.string,
-      heroImage: PropTypes.shape({
-        fields: PropTypes.shape({
-          title: PropTypes.string,
-          file: PropTypes.shape({
-            url: PropTypes.string,
-            details: PropTypes.shape({
-              image: PropTypes.shape({
-                height: PropTypes.number,
-                width: PropTypes.number,
-              }),
-            }),
-          }),
-        }),
-      }),
+      heroImage: PropTypes.object,
     }),
   }),
 };
