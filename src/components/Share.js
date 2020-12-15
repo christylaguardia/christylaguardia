@@ -8,7 +8,7 @@ export default function Share(props) {
   const {
     query: { slug },
   } = useRouter();
-  const shareUrl = `https://christylaguardia.com/${slug}`;
+  const shareUrl = `https://christylaguardia.com/blog/${slug}`;
 
   return (
     <div className="share-container">
