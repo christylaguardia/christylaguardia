@@ -1,36 +1,146 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Markdown from 'react-markdown';
+import Image from 'next/image';
 import Layout from '../src/components/Layout';
 
-export default function About() {
+export default function About({ person }) {
+  const {
+    fields: {
+      image,
+      shortBio,
+      email,
+      medium,
+      facebook,
+      instagram,
+      twitter,
+      linkedIn,
+      portfolio,
+    },
+  } = person;
+
+  const links = [
+    { href: medium, name: 'Medium' },
+    { href: facebook, name: 'Facebook' },
+    { href: instagram, name: 'Instagram' },
+    { href: twitter, name: 'Twitter' },
+    { href: linkedIn, name: 'LinkedIn' },
+  ];
+
+  const renderImage = (image) => {
+    const {
+      fields: {
+        title: imgTitle,
+        file: {
+          url,
+          details: {
+            image: { height, width },
+          },
+        },
+      },
+    } = image;
+
+    return (
+      <figure className="image-container">
+        <Image
+          src={`https:${url}`}
+          alt={imgTitle}
+          loading="lazy"
+          layout="responsive"
+          height={height}
+          width={width}
+        />
+      </figure>
+    );
+  };
+
   return (
     <Layout>
-      <div className="about">
-        <blockquote cite="https://en.wikiquote.org/wiki/Thucydides">
-          <p>
-            The secret of happiness is freedom and the secret of freedom is
-            courage.
+      <section className="about">
+        {renderImage(image)}
+        <Markdown source={shortBio} escapeHtml={true} />
+      </section>
+
+      <section className="contact">
+        <h3>Want to chat?</h3>
+        <p>
+          <span>
+            Email is the best way to reach me, here&apos;s my email address:
+          </span>
+          <span> </span>
+          <a href={`mailto:${email}`} target="_blank" rel="noreferrer">
+            {email}
+          </a>
+        </p>
+
+        <p>You can also find me here:</p>
+
+        {links.map(({ href, name }) => (
+          <p key={name}>
+            <a href={href} target="_blank" rel="noreferrer">
+              {name}
+            </a>
           </p>
-          <footer>—Thucydides</footer>
-        </blockquote>
+        ))}
+
         <p>
-          I was raised in a Jehovah Witness family and served as a regular
-          pioneer and volunteer drafter in Portland, Oregon. At the height of my
-          Theocratic career, I left it all behind to start a new life, free from
-          my controlling family and religion and resulting in being totally
-          shunned by everyone I knew.
+          <span>Want to know even more about me?</span>
+          <span> </span>
+          <a href={portfolio} target="_blank" rel="noreferrer">
+            Check out my portfolio.
+          </a>
         </p>
-        <p>
-          In the five years since then I've been busy building a new life. I've
-          had many firsts as I've been learning what freedom is. I met the love
-          of my life, started traveling and started a new career as a software
-          engineer. Currently, I live in Missoula, Montana with my partner Joel
-          and our beagle, Charlie.
-        </p>
-        <p>
-          My blog post are mostly stories about my life as a Jehovah Witness and
-          journey of self-discovery.
-        </p>
-      </div>
+      </section>
     </Layout>
   );
+}
+
+About.propTypes = {
+  fields: PropTypes.shape({
+    image: PropTypes.shape({
+      fields: PropTypes.shape({
+        tile: PropTypes.string,
+        file: PropTypes.shape({
+          url: PropTypes.string,
+          details: PropTypes.shape({
+            image: PropTypes.shape({
+              height: PropTypes.number,
+              width: PropTypes.number,
+            }),
+          }),
+        }),
+      }),
+    }),
+    shortBio: PropTypes.string,
+    email: PropTypes.string,
+    medium: PropTypes.string,
+    facebook: PropTypes.string,
+    instagram: PropTypes.string,
+    twitter: PropTypes.string,
+    linkedIn: PropTypes.string,
+    portfolio: PropTypes.string,
+  }),
+};
+
+export async function getStaticProps() {
+  // Create an instance of the Contentful JavaScript SDK
+  const client = require('contentful').createClient({
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+  });
+
+  // Fetch a single entry
+  const person = await client.getEntry('2G14O8KXqIg2Nt3x7qe7Z5');
+
+  // If nothing was found, return an empty object for props, or else there would
+  // be an error when Next tries to serialize an `undefined` value to JSON.
+  if (!person) {
+    return { props: {} };
+  }
+
+  return {
+    props: {
+      person,
+    },
+  };
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
-import Image from 'next/image'
+import Image from 'next/image';
 import formatDate from '../src/helpers/formatDate';
 import Layout from '../src/components/Layout';
 import Share from '../src/components/Share';
@@ -69,9 +69,24 @@ export default function Slug({ post }) {
 Slug.propTypes = {
   post: PropTypes.shape({
     fields: PropTypes.shape({
-      slug: PropTypes.string,
       title: PropTypes.string,
       publishDate: PropTypes.string,
+      readTime: PropTypes.number,
+      body: PropTypes.string,
+      heroImage: PropTypes.shape({
+        fields: PropTypes.shape({
+          tile: PropTypes.string,
+          file: PropTypes.shape({
+            url: PropTypes.string,
+            details: PropTypes.shape({
+              image: PropTypes.shape({
+                height: PropTypes.number,
+                width: PropTypes.number,
+              }),
+            }),
+          }),
+        }),
+      }),
     }),
   }),
 };
