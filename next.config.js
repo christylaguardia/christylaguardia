@@ -6,7 +6,7 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/blog',
+        source: '/about',
         destination: '/',
         permanent: true,
       },

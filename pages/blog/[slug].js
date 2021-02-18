@@ -6,7 +6,7 @@ import Layout from '../../src/components/Layout';
 import HeroImage from '../../src/components/HeroImage';
 import Share from '../../src/components/Share';
 
-export default function Slug({ post }) {
+export default function BlogSlug({ post }) {
   if (post === 'undefined' || !post) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
@@ -37,7 +37,7 @@ export default function Slug({ post }) {
   );
 }
 
-Slug.propTypes = {
+BlogSlug.propTypes = {
   post: PropTypes.shape({
     fields: PropTypes.shape({
       title: PropTypes.string,

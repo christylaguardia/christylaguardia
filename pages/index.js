@@ -1,55 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
+import Markdown from 'react-markdown';
 import Layout from '../src/components/Layout';
-import sortPostsByYear from '../src/helpers/sortPostsByYear';
-import formatDate from '../src/helpers/formatDate';
 
-export default function Index({ posts }) {
-  if (posts === 'undefined' || !posts) {
-    return <p>Uh Oh! Something went wrong :(</p>;
-  }
-
-  const postsByYear = sortPostsByYear(posts);
-  const years = Object.keys(postsByYear).reverse();
+export default function About(props) {
+  const {
+    person: {
+      fields: { shortBio },
+    },
+  } = props;
 
   return (
-    <Layout className="blog-section">
-      {years.map((year) => (
-        <section key={year}>
-          <h2 className="blog-year">{year}</h2>
-          <ul className="blog-list">
-            {postsByYear[year].map(
-              ({ fields: { slug, title, publishDate } }) => (
-                <li key={slug} className="blog-list-item">
-                  <Link href={{ pathname: `/blog/${slug}` }}>
-                    <a href={`https://christylaguardia.com/blog/${slug}`}>
-                      {title}
-                    </a>
-                  </Link>
-                  <span>{formatDate(publishDate)}</span>
-                  {/* TODO: */}
-                  {/* <span>{readTime} min read</span> */}
-                </li>
-              )
-            )}
-          </ul>
-        </section>
-      ))}
+    <Layout pageTitle="About Me">
+      <section className="about">
+        <Markdown source={shortBio} escapeHtml={true} />
+      </section>
     </Layout>
   );
 }
 
-Index.propTypes = {
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      fields: PropTypes.shape({
-        slug: PropTypes.string,
-        title: PropTypes.string,
-        publishDate: PropTypes.string,
-      }),
-    })
-  ),
+About.propTypes = {
+  person: PropTypes.shape({
+    fields: PropTypes.shape({
+      shortBio: PropTypes.string,
+      email: PropTypes.string,
+      medium: PropTypes.string,
+      facebook: PropTypes.string,
+      instagram: PropTypes.string,
+      twitter: PropTypes.string,
+      linkedIn: PropTypes.string,
+    }),
+  }),
 };
 
 export async function getStaticProps() {
@@ -59,14 +40,18 @@ export async function getStaticProps() {
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   });
 
-  // Fetch all entries of content_type `blogPost`
-  const posts = await client
-    .getEntries({ content_type: 'blogPost' })
-    .then((response) => response.items);
+  // Fetch a single entry
+  const person = await client.getEntry('2G14O8KXqIg2Nt3x7qe7Z5');
+
+  // If nothing was found, return an empty object for props, or else there would
+  // be an error when Next tries to serialize an `undefined` value to JSON.
+  if (!person) {
+    return { props: {} };
+  }
 
   return {
     props: {
-      posts,
+      person,
     },
   };
 }
