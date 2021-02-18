@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Markdown from 'react-markdown';
 import Image from 'next/image';
 import Layout from '../src/components/Layout';
 
-export default function About({ person }) {
+export default function Contact({ person }) {
   const {
     fields: {
       image,
-      shortBio,
       email,
       medium,
       facebook,
@@ -20,11 +18,11 @@ export default function About({ person }) {
   } = person;
 
   const links = [
+    { href: linkedIn, name: 'LinkedIn' },
     { href: medium, name: 'Medium' },
     { href: facebook, name: 'Facebook' },
     { href: instagram, name: 'Instagram' },
     { href: twitter, name: 'Twitter' },
-    { href: linkedIn, name: 'LinkedIn' },
   ];
 
   const renderImage = (image) => {
@@ -55,7 +53,7 @@ export default function About({ person }) {
   };
 
   return (
-    <Layout>
+    <Layout pageTitle="Contact Me">
       <section className="contact">
         <h3>Want to chat?</h3>
         <p>
@@ -77,20 +75,12 @@ export default function About({ person }) {
             </a>
           </p>
         ))}
-
-        <p>
-          <span>Want to know even more about me?</span>
-          <span> </span>
-          <a href={portfolio} target="_blank" rel="noreferrer">
-            Check out my portfolio.
-          </a>
-        </p>
       </section>
     </Layout>
   );
 }
 
-About.propTypes = {
+Contact.propTypes = {
   person: PropTypes.shape({
     fields: PropTypes.shape({
       image: PropTypes.shape({
@@ -108,14 +98,12 @@ About.propTypes = {
           }),
         }),
       }),
-      shortBio: PropTypes.string,
       email: PropTypes.string,
       medium: PropTypes.string,
       facebook: PropTypes.string,
       instagram: PropTypes.string,
       twitter: PropTypes.string,
       linkedIn: PropTypes.string,
-      portfolio: PropTypes.string,
     }),
   }),
 };
