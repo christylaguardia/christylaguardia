@@ -1,61 +1,70 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Markdown from 'react-markdown';
-import Image from 'next/image';
+import Link from 'next/link';
 import Layout from '../src/components/Layout';
+import formatDate from '../src/helpers/formatDate';
 
-export default function Projects(props) {
-  const { projects } = props;
+export default function Project({ projects }) {
+  if (projects === 'undefined' || !projects) {
+    return <p>Uh Oh! Something went wrong :(</p>;
+  }
+
+  const { clientProjects, personalProjects } = projects.reduce(
+    (projectsByType, project) => {
+      if (project.fields.client === true) {
+        projectsByType.clientProjects.push(project);
+      } else {
+        projectsByType.personalProjects.push(project);
+      }
+      return projectsByType;
+    },
+    { clientProjects: [], personalProjects: [] }
+  );
+
+  const renderProject = ({
+    fields: { slug, title, description, startDate },
+  }) => (
+    <li key={slug} className="blog-list-item">
+      <div className="blog-list-item-container">
+        <Link href={{ pathname: `/projects/${slug}` }}>
+          <a href={`/projects/${slug}`}>{title}</a>
+        </Link>
+        {description && <p>{description}</p>}
+      </div>
+      <small>
+        <span>{formatDate(startDate, 'monthyear')}</span>
+      </small>
+    </li>
+  );
 
   return (
-    <Layout>
-      {projects.map(
-        ({
-          fields: {
-            title,
-            image: {
-              fields: {
-                file: { url: imageUrl },
-              },
-            },
-            body,
-            techStack: tags,
-          },
-        }) => (
-          <section className="project">
-            <div className="">
-              <Image
-                src={`https:${imageUrl}`}
-                alt={title}
-                loading="lazy"
-                height={100}
-                width={100}
-              />
-            </div>
-            <div className="">
-              <h2>{title}</h2>
-              <Markdown source={body} escapeHtml={true} />
-              <div className="tags">
-                {tags.map((tag) => (
-                  <span className="tag">{tag}</span>
-                ))}
-              </div>
-            </div>
-          </section>
-        )
-      )}
+    <Layout pageTitle="Projects">
+      <section>
+        <h2 className="blog-year">Client Projects</h2>
+        <ul className="blog-list">
+          {clientProjects.map((project) => renderProject(project))}
+        </ul>
+      </section>
+      <section>
+        <h2 className="blog-year">Personal Projects</h2>
+        <ul className="blog-list">
+          {personalProjects.map((project) => renderProject(project))}
+        </ul>
+      </section>
     </Layout>
   );
 }
 
-Projects.propTypes = {
-  person: PropTypes.shape({
-    fields: PropTypes.shape({
-      title: PropTypes.string,
-      image: PropTypes.object,
-      body: PropTypes.string,
-    }),
-  }),
+Project.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      fields: PropTypes.shape({
+        slug: PropTypes.string,
+        title: PropTypes.string,
+        startDate: PropTypes.string,
+      }),
+    })
+  ),
 };
 
 export async function getStaticProps() {
@@ -65,7 +74,7 @@ export async function getStaticProps() {
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   });
 
-  // Query Contentful for all projects in the space
+  // Fetch all entries of content_type
   const projects = await client
     .getEntries({ content_type: 'project', order: '-fields.startDate' })
     .then((response) => response.items);

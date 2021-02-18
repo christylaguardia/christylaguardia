@@ -17,9 +17,10 @@ const months = [
  * This helper parses the date string like "2020-11-07"
  * and formats like "November, 7, 2020"
  * @param {string} dateString
+ * @param {string} format
  */
 
-export default function formatDate(dateString) {
+export default function formatDate(dateString, format = 'long') {
   if (!dateString) {
     return null;
   }
@@ -33,6 +34,10 @@ export default function formatDate(dateString) {
 
   if (!date) {
     return null;
+  }
+
+  if (format === 'monthyear') {
+    return `${months[date.getMonth()]} ${date.getFullYear()}`;
   }
 
   return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
