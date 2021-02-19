@@ -1,50 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
-import formatDate from '../../src/helpers/formatDate';
 import Layout from '../../src/components/Layout';
-import HeroImage from '../../src/components/HeroImage';
-import Share from '../../src/components/Share';
+import formatDate from '../../src/helpers/formatDate';
 
-export default function BlogSlug({ post }) {
-  if (post === 'undefined' || !post) {
+export default function ProjectSlug({ project }) {
+  if (project === 'undefined' || !project) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
   const {
-    fields: { title, publishDate: date, readTime, body, heroImage },
-  } = post;
+    fields: { title, description, startDate, body, techStack: tags },
+  } = project;
 
   return (
     <Layout pageTitle={title}>
-      <article className="article">
-        <h1 className="article-title">{title}</h1>
-        {(date || readTime) && (
-          <p>
-            <small>
-              {date && <span>{formatDate(date)}</span>}
-              {date && readTime && <span> &#8226; </span>}
-              {readTime && <span>{readTime} min read</span>}
-            </small>
-          </p>
-        )}
-        {heroImage && <HeroImage image={heroImage} />}
-        <section>
-          <Markdown source={body} escapeHtml={true} />
-        </section>
-      </article>
-      <Share title={title} />
+      <section className="article">
+        <h2>{title}</h2>
+        <h3>{description}</h3>
+        <p>
+          <small>{formatDate(startDate, 'monthyear')}</small>
+        </p>
+        <Markdown source={body} escapeHtml={true} />
+        <div className="tags">
+          {tags.map((tag) => (
+            <span key={tag} className="tag">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </section>
     </Layout>
   );
 }
 
-BlogSlug.propTypes = {
-  post: PropTypes.shape({
+ProjectSlug.propTypes = {
+  project: PropTypes.shape({
     fields: PropTypes.shape({
-      title: PropTypes.string,
-      publishDate: PropTypes.string,
-      readTime: PropTypes.number,
-      body: PropTypes.string,
-      heroImage: PropTypes.object,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      startDate: PropTypes.string.isRequired,
+      techStack: PropTypes.arrayOf(PropTypes.string).isRequired,
     }),
   }),
 };
@@ -59,25 +55,25 @@ export async function getStaticProps(context) {
   // Fetch all results where `fields.slug` is equal to the `slug` param
   const result = await client
     .getEntries({
-      content_type: 'blogPost',
+      content_type: 'project',
       'fields.slug': context.params.slug,
     })
     .then((response) => response.items);
 
   // Since `slug` was set to be a unique field, we can be confident that
-  // the only result in the query is the correct post.
-  const post = result.pop();
+  // the only result in the query is the correct project.
+  const project = result.pop();
 
   // If nothing was found, return an empty object for props, or else there would
   // be an error when Next tries to serialize an `undefined` value to JSON.
-  if (!post) {
+  if (!project) {
     return { props: {} };
   }
 
-  // Return the post as props
+  // Return the project as props
   return {
     props: {
-      post,
+      project,
     },
   };
 }
@@ -89,15 +85,15 @@ export async function getStaticPaths() {
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   });
 
-  // Query Contentful for all blog posts in the space
-  const posts = await client
-    .getEntries({ content_type: 'blogPost' })
+  // Query Contentful for all projects in the space
+  const projects = await client
+    .getEntries({ content_type: 'project', order: '-fields.startDate' })
     .then((response) => response.items);
 
   // Map the result of that query to a list of slugs.
-  // This will give Next the list of all blog post pages that need to be
+  // This will give Next the list of all project pages that need to be
   // rendered at build time.
-  const paths = posts.map(({ fields: { slug } }) => ({ params: { slug } }));
+  const paths = projects.map(({ fields: { slug } }) => ({ params: { slug } }));
 
   return {
     paths,

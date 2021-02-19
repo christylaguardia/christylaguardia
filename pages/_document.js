@@ -27,6 +27,12 @@ export default class MyDocument extends Document {
                   `,
                 }}
               />
+              <script
+                async
+                defer
+                src="https://your-analytics.org/ya.js"
+                data-domain="christylaguardia.com"
+              />
             </>
           )}
         </Head>
