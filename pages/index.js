@@ -1,18 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Image from 'next/image';
 import Markdown from 'react-markdown';
 import Layout from '../src/components/Layout';
 
 export default function About(props) {
   const {
     person: {
-      fields: { shortBio },
+      fields: {
+        shortBio,
+        image: {
+          fields: {
+            file: {
+              url,
+              details: {
+                image: { width, height },
+              },
+            },
+          },
+        },
+      },
     },
   } = props;
 
   return (
     <Layout pageTitle="About Me">
       <section className="about">
+        <figure>
+          <Image
+            src={`https:${url}`}
+            alt="Christy La Guardia"
+            loading="lazy"
+            height={height}
+            width={width}
+          />
+        </figure>
         <Markdown source={shortBio} escapeHtml={true} />
       </section>
     </Layout>
