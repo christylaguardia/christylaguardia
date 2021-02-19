@@ -246,8 +246,9 @@ blockquote > footer {
   margin: 2rem;
   padding: 2rem;
   border-radius: 8px;
-  border: 1px solid #757575;
-  background-color: #fff;
+  border: 2px solid #757575;
+  background-color: #d3d3d3;
+  color: #202022;
 }
 
 .subscribe-container {
