@@ -29,13 +29,15 @@ export default function Blog({ posts }) {
     fields: { slug, title, description, publishDate, readTime },
   }) => (
     <li key={slug} className="blog-list-item">
-      <div className="blog-list-item-container">
+      <div className="blog-list-item-title">
         <Link href={{ pathname: `/blog/${slug}` }}>
           <a href={`/blog/${slug}`}>{title}</a>
         </Link>
         {description && <p>{description}</p>}
       </div>
-      <small>{publishDate && <span>{`${readTime} min read`}</span>}</small>
+      <div className="blog-list-item-small">
+        <small>{publishDate && <span>{`${readTime} min read`}</span>}</small>
+      </div>
     </li>
   );
 

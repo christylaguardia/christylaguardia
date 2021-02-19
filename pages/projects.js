@@ -9,31 +9,35 @@ export default function Project({ projects }) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
 
-  const { clientProjects, personalProjects } = projects.reduce(
+  const { clientProjects, personalProjects, studentProjects } = projects.reduce(
     (projectsByType, project) => {
-      if (project.fields.client === true) {
+      if (project.fields.type === 'Client') {
         projectsByType.clientProjects.push(project);
-      } else {
+      } else if (project.fields.type === 'Personal') {
         projectsByType.personalProjects.push(project);
+      } else {
+        projectsByType.studentProjects.push(project);
       }
       return projectsByType;
     },
-    { clientProjects: [], personalProjects: [] }
+    { clientProjects: [], personalProjects: [], studentProjects: [] }
   );
 
   const renderProject = ({
     fields: { slug, title, description, startDate },
   }) => (
     <li key={slug} className="blog-list-item">
-      <div className="blog-list-item-container">
+      <div className="blog-list-item-title">
         <Link href={{ pathname: `/projects/${slug}` }}>
           <a href={`/projects/${slug}`}>{title}</a>
         </Link>
         {description && <p>{description}</p>}
       </div>
-      <small>
-        <span>{formatDate(startDate, 'monthyear')}</span>
-      </small>
+      <div className="blog-list-item-small">
+        <small>
+          <span>{formatDate(startDate, 'monthyear')}</span>
+        </small>
+      </div>
     </li>
   );
 
@@ -49,6 +53,12 @@ export default function Project({ projects }) {
         <h2 className="blog-year">Personal Projects</h2>
         <ul className="blog-list">
           {personalProjects.map((project) => renderProject(project))}
+        </ul>
+      </section>
+      <section>
+        <h2 className="blog-year">Student Projects</h2>
+        <ul className="blog-list">
+          {studentProjects.map((project) => renderProject(project))}
         </ul>
       </section>
     </Layout>

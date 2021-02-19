@@ -123,20 +123,22 @@ a:hover {
   padding: 0.5rem 0;
 }
 
-.blog-list-item a {
-  padding: 2px 0;
-  font-weight: 500;
+.blog-list-item-title {
+  flex-grow: 2;
 }
 
-.blog-list-item span {
-  color: #757575;
-  padding: 2px 0;
-  min-width: 220px;
-}
-
-.blog-list-item-container > p {
+.blog-list-item-title > p {
+  font-size: 1rem;
   margin-top: 4px;
   margin-bottom: 0;
+}
+
+.blog-list-item-small {
+  flex-grow: 1;
+  text-align: right;
+  min-width: 220px;
+  color: #757575;
+  padding: 2px 0;
 }
 
 .contact {
@@ -151,7 +153,8 @@ a:hover {
   margin: 0;
 }
 
-.article figure > img {
+.article figure > img,
+.article img {
   height: auto;
   width: auto;
   max-width: 700px;
@@ -307,6 +310,10 @@ blockquote > footer {
 
   .blog-list-item {
     flex-direction: column-reverse;
+  }
+
+  .blog-list-item-small {
+    text-align: left;
   }
 
   blockquote {
