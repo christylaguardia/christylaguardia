@@ -7,7 +7,7 @@ export default function Subscribe() {
         action={`https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE}`}
         method="post"
       >
-        <label className="subscribe-label" for="email">
+        <label className="subscribe-label" htmlFor="email">
           Want to get these posts in your inbox?
         </label>
         <div className="subscribe-container">

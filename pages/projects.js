@@ -9,7 +9,9 @@ export default function Project({ projects }) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
 
-  const { clientProjects, personalProjects, studentProjects } = projects.reduce(
+  const { clientProjects, personalProjects, studentProjects } = [
+    ...projects,
+  ].reduce(
     (projectsByType, project) => {
       if (project.fields.type === 'Client') {
         projectsByType.clientProjects.push(project);
@@ -66,11 +68,12 @@ export default function Project({ projects }) {
 }
 
 Project.propTypes = {
-  posts: PropTypes.arrayOf(
+  projects: PropTypes.arrayOf(
     PropTypes.shape({
       fields: PropTypes.shape({
         slug: PropTypes.string,
         title: PropTypes.string,
+        description: PropTypes.string,
         startDate: PropTypes.string,
       }),
     })

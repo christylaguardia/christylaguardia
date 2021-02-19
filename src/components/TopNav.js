@@ -7,22 +7,23 @@ export default function TopNav() {
       <ul className="top-nav">
         <li className="top-nav-item">
           <Link href="/">
-            <a>Christy La&nbsp;Guardia</a>
+            {/* The href attribute is required for an anchor to be keyboard accessible.  */}
+            <a href="https://christylaguardia.com/">Christy La&nbsp;Guardia</a>
           </Link>
         </li>
         <li className="top-nav-item">
           <Link href="/blog">
-            <a>Blog</a>
+            <a href="https://christylaguardia.com/blog/">Blog</a>
           </Link>
         </li>
         <li className="top-nav-item">
           <Link href="/projects">
-            <a>Projects</a>
+            <a href="https://christylaguardia.com/projects/">Projects</a>
           </Link>
         </li>
         <li className="top-nav-item">
           <Link href="/contact">
-            <a>Contact</a>
+            <a href="https://christylaguardia.com/contact/">Contact</a>
           </Link>
         </li>
       </ul>

@@ -1,20 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Image from 'next/image';
 import Layout from '../src/components/Layout';
 
 export default function Contact({ person }) {
   const {
-    fields: {
-      image,
-      email,
-      medium,
-      facebook,
-      instagram,
-      twitter,
-      linkedIn,
-      portfolio,
-    },
+    fields: { email, medium, facebook, instagram, twitter, linkedIn },
   } = person;
 
   const links = [
@@ -24,33 +14,6 @@ export default function Contact({ person }) {
     { href: instagram, name: 'Instagram' },
     { href: twitter, name: 'Twitter' },
   ];
-
-  const renderImage = (image) => {
-    const {
-      fields: {
-        title: imgTitle,
-        file: {
-          url,
-          details: {
-            image: { height, width },
-          },
-        },
-      },
-    } = image;
-
-    return (
-      <figure className="image-container">
-        <Image
-          src={`https:${url}`}
-          alt={imgTitle}
-          loading="lazy"
-          layout="responsive"
-          height={height}
-          width={width}
-        />
-      </figure>
-    );
-  };
 
   return (
     <Layout pageTitle="Contact Me">
@@ -83,21 +46,6 @@ export default function Contact({ person }) {
 Contact.propTypes = {
   person: PropTypes.shape({
     fields: PropTypes.shape({
-      image: PropTypes.shape({
-        fields: PropTypes.shape({
-          title: PropTypes.string,
-          description: PropTypes.string,
-          file: PropTypes.shape({
-            url: PropTypes.string,
-            details: PropTypes.shape({
-              image: PropTypes.shape({
-                height: PropTypes.number,
-                width: PropTypes.number,
-              }),
-            }),
-          }),
-        }),
-      }),
       email: PropTypes.string,
       medium: PropTypes.string,
       facebook: PropTypes.string,

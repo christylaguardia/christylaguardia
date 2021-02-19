@@ -34,15 +34,17 @@ export default function HeroImage(props) {
 }
 
 HeroImage.propTypes = {
-  fields: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-    file: PropTypes.shape({
-      url: PropTypes.string,
-      details: PropTypes.shape({
-        image: PropTypes.shape({
-          height: PropTypes.number,
-          width: PropTypes.number,
+  image: PropTypes.shape({
+    fields: PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+      file: PropTypes.shape({
+        url: PropTypes.string,
+        details: PropTypes.shape({
+          image: PropTypes.shape({
+            height: PropTypes.number,
+            width: PropTypes.number,
+          }),
         }),
       }),
     }),

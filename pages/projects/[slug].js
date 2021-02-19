@@ -37,6 +37,7 @@ ProjectSlug.propTypes = {
   project: PropTypes.shape({
     fields: PropTypes.shape({
       title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       startDate: PropTypes.string.isRequired,
       techStack: PropTypes.arrayOf(PropTypes.string).isRequired,

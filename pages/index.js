@@ -11,6 +11,7 @@ export default function About(props) {
         shortBio,
         image: {
           fields: {
+            title,
             file: {
               url,
               details: {
@@ -29,7 +30,7 @@ export default function About(props) {
         <figure>
           <Image
             src={`https:${url}`}
-            alt="Christy La Guardia"
+            alt={title}
             loading="lazy"
             height={height}
             width={width}
@@ -45,12 +46,20 @@ About.propTypes = {
   person: PropTypes.shape({
     fields: PropTypes.shape({
       shortBio: PropTypes.string,
-      email: PropTypes.string,
-      medium: PropTypes.string,
-      facebook: PropTypes.string,
-      instagram: PropTypes.string,
-      twitter: PropTypes.string,
-      linkedIn: PropTypes.string,
+      image: PropTypes.shape({
+        fields: PropTypes.shape({
+          title: PropTypes.string,
+          file: PropTypes.shape({
+            url: PropTypes.string,
+            details: PropTypes.shape({
+              image: PropTypes.shape({
+                height: PropTypes.number,
+                width: PropTypes.number,
+              }),
+            }),
+          }),
+        }),
+      }),
     }),
   }),
 };
