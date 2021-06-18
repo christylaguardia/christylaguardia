@@ -11,6 +11,7 @@ Create a `.env.local` with the following variables:
 ```txt
 NEXT_PUBLIC_CONTENTFUL_SPACE_ID=
 NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=
+NEXT_PUBLIC_FORMSPREE=
 ```
 
 Run the development server:
@@ -34,5 +35,5 @@ Use [Read-O-Meter](https://niram.org/read/) to get the value for the `readTime` 
 
 ## References
 
-* https://heymike.dev/post/build-a-static-blog-with-next-js-and-contentful-part-two-next-js
-* https://www.netlify.com/blog/2020/08/17/integrate-next.js-contentful/
+- https://heymike.dev/post/build-a-static-blog-with-next-js-and-contentful-part-two-next-js
+- https://www.netlify.com/blog/2020/08/17/integrate-next.js-contentful/
