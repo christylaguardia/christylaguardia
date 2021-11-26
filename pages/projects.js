@@ -59,7 +59,6 @@ export default function Project({ projects }) {
       </div>
     </li>
   );
-  console.log({ consultingProjects });
 
   return (
     <Layout pageTitle="Projects">
