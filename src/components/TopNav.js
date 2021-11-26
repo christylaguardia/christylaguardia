@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 
+// TODO: make top nav configurable from Contentful
+
 export default function TopNav() {
   return (
     <nav>
@@ -12,13 +14,8 @@ export default function TopNav() {
           </Link>
         </li>
         <li className="top-nav-item">
-          <Link href="/blog">
-            <a href="https://christylaguardia.com/blog/">Blog</a>
-          </Link>
-        </li>
-        <li className="top-nav-item">
-          <Link href="/projects">
-            <a href="https://christylaguardia.com/projects/">Projects</a>
+          <Link href="/consulting">
+            <a href="https://christylaguardia.com/consulting/">Consulting</a>
           </Link>
         </li>
         <li className="top-nav-item">
