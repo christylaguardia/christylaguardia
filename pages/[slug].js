@@ -15,7 +15,9 @@ export default function PageSlug(props) {
 
   return (
     <Layout pageTitle={title}>
-      <Markdown source={body} escapeHtml={true} />
+      <section className="page">
+        <Markdown source={body} escapeHtml={true} />
+      </section>
     </Layout>
   );
 }
