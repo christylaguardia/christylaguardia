@@ -4,16 +4,28 @@ import Link from 'next/link';
 import Layout from '../src/components/Layout';
 import formatDate from '../src/helpers/formatDate';
 
+/**
+ * The `type` field groups project by categories.
+ * The values for `type` are hardcoded in Contentful.
+ * If a new `type` is added in Contendful, it will need to be added below.
+ * TODO: make `type` dynamic.
+ */
+
 export default function Project({ projects }) {
   if (projects === 'undefined' || !projects) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
 
-  const { clientProjects, personalProjects, studentProjects } = [
-    ...projects,
-  ].reduce(
+  const {
+    consultingProjects,
+    clientProjects,
+    personalProjects,
+    studentProjects,
+  } = [...projects].reduce(
     (projectsByType, project) => {
-      if (project.fields.type === 'Client') {
+      if (project.fields.type === 'Consulting') {
+        projectsByType.consultingProjects.push(project);
+      } else if (project.fields.type === 'Client') {
         projectsByType.clientProjects.push(project);
       } else if (project.fields.type === 'Personal') {
         projectsByType.personalProjects.push(project);
@@ -22,7 +34,12 @@ export default function Project({ projects }) {
       }
       return projectsByType;
     },
-    { clientProjects: [], personalProjects: [], studentProjects: [] }
+    {
+      consultingProjects: [],
+      clientProjects: [],
+      personalProjects: [],
+      studentProjects: [],
+    }
   );
 
   const renderProject = ({
@@ -45,24 +62,38 @@ export default function Project({ projects }) {
 
   return (
     <Layout pageTitle="Projects">
-      <section>
-        <h2 className="blog-year">Client Projects</h2>
-        <ul className="blog-list">
-          {clientProjects.map((project) => renderProject(project))}
-        </ul>
-      </section>
-      <section>
-        <h2 className="blog-year">Personal Projects</h2>
-        <ul className="blog-list">
-          {personalProjects.map((project) => renderProject(project))}
-        </ul>
-      </section>
-      <section>
-        <h2 className="blog-year">Student Projects</h2>
-        <ul className="blog-list">
-          {studentProjects.map((project) => renderProject(project))}
-        </ul>
-      </section>
+      {consultingProjects.length > 0 && (
+        <section>
+          <h2 className="blog-year">Consulting Projects</h2>
+          <ul className="blog-list">
+            {consultingProjects.map((project) => renderProject(project))}
+          </ul>
+        </section>
+      )}
+      {clientProjects.length > 0 && (
+        <section>
+          <h2 className="blog-year">Client Projects</h2>
+          <ul className="blog-list">
+            {clientProjects.map((project) => renderProject(project))}
+          </ul>
+        </section>
+      )}
+      {personalProjects.length > 0 && (
+        <section>
+          <h2 className="blog-year">Personal Projects</h2>
+          <ul className="blog-list">
+            {personalProjects.map((project) => renderProject(project))}
+          </ul>
+        </section>
+      )}
+      {studentProjects.length > 0 && (
+        <section>
+          <h2 className="blog-year">Student Projects</h2>
+          <ul className="blog-list">
+            {studentProjects.map((project) => renderProject(project))}
+          </ul>
+        </section>
+      )}
     </Layout>
   );
 }

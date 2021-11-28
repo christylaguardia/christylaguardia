@@ -153,6 +153,7 @@ a:hover {
   margin: 0;
 }
 
+.page img,
 .article figure > img,
 .article img {
   height: auto;
@@ -160,21 +161,25 @@ a:hover {
   max-width: 700px;
 }
 
+.page h1,
 .article h1 {
   font-family: 'Roboto', serif;
   font-size: 2.5rem;
 }
 
+.page h2,
 .article h2 {
   font-family: 'Roboto', serif;
 }
 
+.page p,
 .article p {
   font-family: 'IBM Plex Serif', serif;
   font-size: 1.2rem;
   line-height: 1.6;
 }
 
+.page p a,
 .article p a {
   font-weight: 500;
 }
