@@ -90,7 +90,7 @@ a:hover {
 
 .top-nav-item {
   display: inline;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
 }
 
 .top-nav-item:last-child {
