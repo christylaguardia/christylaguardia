@@ -1,28 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
 
-// TODO: make top nav configurable from Contentful
-
 export default function TopNav() {
+  // TODO: make top nav configurable from Contentful
+  const menu = [
+    { title: <span>Christy La&nbsp;Guardia</span>, page: '/' },
+    { title: 'Projects', page: '/projects' },
+    { title: 'Blog', page: '/blog' },
+    { title: 'Contact', page: '/contact' },
+  ];
+
   return (
     <nav>
       <ul className="top-nav">
-        <li className="top-nav-item">
-          <Link href="/">
-            {/* The href attribute is required for an anchor to be keyboard accessible.  */}
-            <a href="https://christylaguardia.com/">Christy La&nbsp;Guardia</a>
-          </Link>
-        </li>
-        <li className="top-nav-item">
-          <Link href="/consulting">
-            <a href="https://christylaguardia.com/consulting/">Consulting</a>
-          </Link>
-        </li>
-        <li className="top-nav-item">
-          <Link href="/contact">
-            <a href="https://christylaguardia.com/contact/">Contact</a>
-          </Link>
-        </li>
+        {menu.map(({ title, page }) => (
+          <li className="top-nav-item" key={page}>
+            <Link href={page}>
+              <a href={`https://christylaguardia.com${page}`}>{title}</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

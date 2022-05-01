@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Layout from '../src/components/Layout';
-import Subscribe from '../src/components/Subscribe';
+// import Subscribe from '../src/components/Subscribe';
 
 export default function Blog({ posts }) {
   if (posts === 'undefined' || !posts) {
@@ -43,7 +43,7 @@ export default function Blog({ posts }) {
 
   return (
     <Layout pageTitle="Blog">
-      <Subscribe />
+      {/* <Subscribe /> */}
       {years.map((year) => (
         <section key={year}>
           <h2 className="blog-year">{year}</h2>
