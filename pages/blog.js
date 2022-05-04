@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Layout from '../src/components/Layout';
-import { fetchByContentType } from './_contenful';
+import { fetchByContentType } from '../src/helpers/contentful';
 
 export default function Blog(props) {
   const { entries: posts } = props;

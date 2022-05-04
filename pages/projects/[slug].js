@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 import Layout from '../../src/components/Layout';
 import formatDate from '../../src/helpers/formatDate';
-import { fetchByContentType, fetchPathsByContentType } from '../_contenful';
+import {
+  fetchByContentType,
+  fetchPathsByContentType,
+} from '../../src/helpers/contentful';
 
 export default function ProjectSlug(props) {
   const { entries } = props;

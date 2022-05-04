@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 import Layout from '../src/components/Layout';
-import { fetchByEntry } from './_contenful';
+import { fetchByEntry } from '../src/helpers/contentful';
 
 export default function Home(props) {
   const {

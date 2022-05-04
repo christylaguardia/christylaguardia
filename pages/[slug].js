@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 import Layout from '../src/components/Layout';
-import { fetchByContentType, fetchPathsByContentType } from './_contenful';
+import {
+  fetchByContentType,
+  fetchPathsByContentType,
+} from '../src/helpers/contentful';
 
 export default function PageSlug(props) {
   const { entries } = props;

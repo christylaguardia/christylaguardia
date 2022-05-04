@@ -1,3 +1,7 @@
+/**
+ * Helpers for Contentful data fetching.
+ */
+
 const createClient = () =>
   require('contentful').createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Layout from '../src/components/Layout';
 import formatDate from '../src/helpers/formatDate';
-import { fetchByContentType } from './_contenful';
+import { fetchByContentType } from '../src/helpers/contentful';
 
 /**
  * NOTE: The `type` order is configured in the field enum in Contentful

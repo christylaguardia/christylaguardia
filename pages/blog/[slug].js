@@ -5,7 +5,10 @@ import formatDate from '../../src/helpers/formatDate';
 import Layout from '../../src/components/Layout';
 import HeroImage from '../../src/components/HeroImage';
 import Share from '../../src/components/Share';
-import { fetchByContentType, fetchPathsByContentType } from '../_contenful';
+import {
+  fetchByContentType,
+  fetchPathsByContentType,
+} from '../../src/helpers/contentful';
 
 export default function BlogSlug(props) {
   const { entries } = props;
