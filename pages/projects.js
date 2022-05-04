@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Layout from '../src/components/Layout';
 import formatDate from '../src/helpers/formatDate';
+import { fetchByContentType } from './_contenful';
 
 /**
  * NOTE: The `type` order is configured in the field enum in Contentful
  */
-export default function Project({ projects }) {
+export default function Project(props) {
+  const { entries: projects } = props;
+
   if (projects === 'undefined' || !projects) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
@@ -60,7 +63,7 @@ export default function Project({ projects }) {
 }
 
 Project.propTypes = {
-  projects: PropTypes.arrayOf(
+  entries: PropTypes.arrayOf(
     PropTypes.shape({
       fields: PropTypes.shape({
         slug: PropTypes.string,
@@ -73,26 +76,5 @@ Project.propTypes = {
 };
 
 export async function getStaticProps() {
-  // Create an instance of the Contentful JavaScript SDK
-  const client = require('contentful').createClient({
-    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-  });
-
-  // Fetch all entries of content_type
-  const projects = await client
-    .getEntries({ content_type: 'project', order: '-fields.startDate' })
-    .then((response) => response.items);
-
-  // If nothing was found, return an empty object for props, or else there would
-  // be an error when Next tries to serialize an `undefined` value to JSON.
-  if (!projects) {
-    return { props: {} };
-  }
-
-  return {
-    props: {
-      projects,
-    },
-  };
+  return fetchByContentType('project', { order: '-fields.startDate' });
 }
