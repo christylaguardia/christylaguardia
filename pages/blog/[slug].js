@@ -37,7 +37,7 @@ export default function BlogSlug(props) {
         )}
         {heroImage && <HeroImage image={heroImage} />}
         <section>
-          <Markdown source={body} escapeHtml={true} />
+          <Markdown children={body} />
         </section>
       </article>
       <Share title={title} />

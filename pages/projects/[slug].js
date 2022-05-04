@@ -28,7 +28,7 @@ export default function ProjectSlug(props) {
         <p>
           <small>{formatDate(startDate, 'monthyear')}</small>
         </p>
-        <Markdown source={body} escapeHtml={true} />
+        <Markdown children={body} />
         {tags && (
           <div className="tags">
             {tags.map((tag) => (
