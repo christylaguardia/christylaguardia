@@ -15,6 +15,7 @@
     "lint": "eslint 'pages/**/*.js' 'src/**/*.js'"
   },
   "dependencies": {
+    "@types/react": "18.0.8",
     "contentful": "^8.1.2",
     "next": "10.0.1",
     "react": "17.0.1",
