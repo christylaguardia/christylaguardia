@@ -5,42 +5,26 @@ import Layout from '../src/components/Layout';
 import formatDate from '../src/helpers/formatDate';
 
 /**
- * The `type` field groups project by categories.
- * The values for `type` are hardcoded in Contentful.
- * If a new `type` is added in Contendful, it will need to be added below.
- * TODO: make `type` dynamic.
+ * NOTE: The `type` order is configured in the field enum in Contentful
  */
-
 export default function Project({ projects }) {
   if (projects === 'undefined' || !projects) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
 
-  const {
-    consultingProjects,
-    clientProjects,
-    personalProjects,
-    studentProjects,
-  } = [...projects].reduce(
-    (projectsByType, project) => {
-      if (project.fields.type === 'Consulting') {
-        projectsByType.consultingProjects.push(project);
-      } else if (project.fields.type === 'Client') {
-        projectsByType.clientProjects.push(project);
-      } else if (project.fields.type === 'Personal') {
-        projectsByType.personalProjects.push(project);
-      } else {
-        projectsByType.studentProjects.push(project);
-      }
-      return projectsByType;
-    },
-    {
-      consultingProjects: [],
-      clientProjects: [],
-      personalProjects: [],
-      studentProjects: [],
-    }
-  );
+  // Get all unique project types
+  const types = [...new Set(projects.map((project) => project.fields.type))];
+
+  // Group projects by type
+  const groupedProjects = types.map((type) => {
+    const filteredProjects = projects.filter(
+      (project) => project.fields.type === type
+    );
+    return {
+      type,
+      projects: filteredProjects,
+    };
+  });
 
   const renderProject = ({
     fields: { slug, title, description, startDate },
@@ -62,38 +46,15 @@ export default function Project({ projects }) {
 
   return (
     <Layout pageTitle="Projects">
-      {consultingProjects.length > 0 && (
-        <section>
-          <h2 className="blog-year">Consulting Projects</h2>
-          <ul className="blog-list">
-            {consultingProjects.map((project) => renderProject(project))}
-          </ul>
-        </section>
-      )}
-      {clientProjects.length > 0 && (
-        <section>
-          <h2 className="blog-year">Client Projects</h2>
-          <ul className="blog-list">
-            {clientProjects.map((project) => renderProject(project))}
-          </ul>
-        </section>
-      )}
-      {personalProjects.length > 0 && (
-        <section>
-          <h2 className="blog-year">Personal Projects</h2>
-          <ul className="blog-list">
-            {personalProjects.map((project) => renderProject(project))}
-          </ul>
-        </section>
-      )}
-      {studentProjects.length > 0 && (
-        <section>
-          <h2 className="blog-year">Student Projects</h2>
-          <ul className="blog-list">
-            {studentProjects.map((project) => renderProject(project))}
-          </ul>
-        </section>
-      )}
+      {groupedProjects.map((group, index) => {
+        const SectionName = types[index];
+        return (
+          <section key={SectionName}>
+            <h2 className="blog-year">{SectionName}</h2>
+            <ul className="blog-list">{group.projects.map(renderProject)}</ul>
+          </section>
+        );
+      })}
     </Layout>
   );
 }
