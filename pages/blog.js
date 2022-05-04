@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Layout from '../src/components/Layout';
-// import Subscribe from '../src/components/Subscribe';
+import { fetchByContentType } from '../src/helpers/contentful';
 
-export default function Blog({ posts }) {
+export default function Blog(props) {
+  const { entries: posts } = props;
+
   if (posts === 'undefined' || !posts) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
@@ -43,7 +45,6 @@ export default function Blog({ posts }) {
 
   return (
     <Layout pageTitle="Blog">
-      {/* <Subscribe /> */}
       {years.map((year) => (
         <section key={year}>
           <h2 className="blog-year">{year}</h2>
@@ -57,7 +58,7 @@ export default function Blog({ posts }) {
 }
 
 Blog.propTypes = {
-  posts: PropTypes.arrayOf(
+  entries: PropTypes.arrayOf(
     PropTypes.shape({
       fields: PropTypes.shape({
         slug: PropTypes.string,
@@ -69,26 +70,5 @@ Blog.propTypes = {
 };
 
 export async function getStaticProps() {
-  // Create an instance of the Contentful JavaScript SDK
-  const client = require('contentful').createClient({
-    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-  });
-
-  // Fetch all entries of content_type
-  const posts = await client
-    .getEntries({ content_type: 'blogPost', order: '-fields.publishDate' })
-    .then((response) => response.items);
-
-  // If nothing was found, return an empty object for props, or else there would
-  // be an error when Next tries to serialize an `undefined` value to JSON.
-  if (!posts) {
-    return { props: {} };
-  }
-
-  return {
-    props: {
-      posts,
-    },
-  };
+  return fetchByContentType('blogPost', { order: '-fields.publishDate' });
 }
