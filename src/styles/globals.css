@@ -203,6 +203,28 @@ a:hover {
   margin-left: 0;
 }
 
+.share-container {
+  margin-top: 4rem;
+  border-top: 2px solid #757575;
+}
+
+.share-container a {
+  font-style: italic;
+}
+
+.share-button {
+  border: none;
+  background-color: inherit;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+  color: #202022;
+  font-family: 'Roboto', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  text-decoration: underline;
+}
+
 small {
   font-family: 'Roboto', serif;
 }
