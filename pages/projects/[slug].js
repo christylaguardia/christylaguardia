@@ -21,13 +21,15 @@ export default function ProjectSlug({ project }) {
           <small>{formatDate(startDate, 'monthyear')}</small>
         </p>
         <Markdown source={body} escapeHtml={true} />
-        <div className="tags">
-          {tags.map((tag) => (
-            <span key={tag} className="tag">
-              {tag}
-            </span>
-          ))}
-        </div>
+        {tags && (
+          <div className="tags">
+            {tags.map((tag) => (
+              <span key={tag} className="tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </section>
     </Layout>
   );
