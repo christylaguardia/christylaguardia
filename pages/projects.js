@@ -30,19 +30,35 @@ export default function Project(props) {
   });
 
   const renderProject = ({
-    fields: { slug, title, description, startDate },
+    fields: { slug, title, techStack: tags, description, startDate },
   }) => (
     <li key={slug} className="blog-list-item">
       <div className="blog-list-item-title">
-        <Link href={{ pathname: `/projects/${slug}` }}>
-          <a href={`/projects/${slug}`}>{title}</a>
-        </Link>
-        {description && <p>{description}</p>}
+        <div>
+          <Link href={{ pathname: `/projects/${slug}` }}>
+            <a href={`/projects/${slug}`}>{title}</a>
+          </Link>
+          {description && <p>{description}</p>}
+          {tags && (
+            <div className="tags">
+              {tags.map((tag) => (
+                <span key={tag} className="tag">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
       <div className="blog-list-item-small">
-        <small>
-          <span>{formatDate(startDate, 'monthyear')}</span>
-        </small>
+        {/* <p>
+          <a href="">Link to app</a>
+        </p> */}
+        <p>
+          <small>
+            <span>{formatDate(startDate, 'monthyear')}</span>
+          </small>
+        </p>
       </div>
     </li>
   );
