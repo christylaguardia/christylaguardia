@@ -6,7 +6,7 @@ import { fetchTags, fetchByContentType } from '../src/helpers/contentful';
 
 export default function Blog(props) {
   const { entries: posts } = props;
-  const [tagId, setTagId] = useState('cultLife');
+  const [tagId, setTagId] = useState('codeLife'); // Hard coded initial tag
   const [tags, setTags] = useState(null);
 
   if (posts === 'undefined' || !posts) {
