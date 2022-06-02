@@ -69,3 +69,13 @@ export const fetchPathsByContentType = async (contentType, query) => {
     fallback: false,
   };
 };
+
+export const fetchTags = async () => {
+  // Create an instance of the Contentful JavaScript SDK
+  const client = createClient();
+
+  // Query Contentful for all Tags
+  const response = await client.getTags();
+
+  return response?.items || [];
+};

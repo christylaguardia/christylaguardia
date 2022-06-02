@@ -1,31 +1,80 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Layout from '../src/components/Layout';
-import { fetchByContentType } from '../src/helpers/contentful';
+import { fetchTags, fetchByContentType } from '../src/helpers/contentful';
 
 export default function Blog(props) {
   const { entries: posts } = props;
+  const [tagId, setTagId] = useState('cultLife');
+  const [tags, setTags] = useState(null);
 
   if (posts === 'undefined' || !posts) {
     return <p>Uh Oh! Something went wrong :(</p>;
   }
 
-  const postsByYear = posts.reduce((postsByYear, post) => {
-    // Draft posts don't have a publish date
-    if (!post.fields.publishDate) return postsByYear; // TDDO: can add to query?
+  useEffect(() => {
+    async function getData() {
+      const response = await fetchTags('blogPost');
+      const tags = response.map(({ name, sys }) => ({ name, id: sys.id }));
+      setTags(tags);
+    }
+    getData();
+  }, [setTags]);
 
+  // Assume there is only one tag
+  const getFirstTag = (post) => post.metadata?.tags[0]?.sys?.id || 'noTag';
+
+  const groupPosts = posts.reduce((groupedPosts, post) => {
+    // Draft posts don't have a publish date
+    if (!post.fields.publishDate) return groupedPosts;
+
+    const tag = getFirstTag(post);
     const year = parseInt(post.fields.publishDate.substring(0, 4), 10);
 
-    if (Object.prototype.hasOwnProperty.call(postsByYear, year)) {
-      postsByYear[year].push(post);
-    } else {
-      postsByYear[year] = [post];
-    }
+    if (Object.prototype.hasOwnProperty.call(groupedPosts, tag)) {
+      if (groupedPosts[tag][year]) {
+        return {
+          ...groupedPosts,
+          [tag]: {
+            ...groupedPosts[tag],
+            [year]: [...groupedPosts[tag][year], post],
+          },
+        };
+      }
 
-    return postsByYear;
+      return {
+        ...groupedPosts,
+        [tag]: {
+          ...groupedPosts[tag],
+          [year]: [post],
+        },
+      };
+    } else {
+      return {
+        ...groupedPosts,
+        [tag]: {
+          [year]: [post],
+        },
+      };
+    }
   }, {});
-  const years = Object.keys(postsByYear).reverse();
+
+  const renderTags = (tags) => {
+    if (!tags) return null;
+
+    return (
+      <div>
+        <ul className="tag-list">
+          {tags.map(({ id, name }) => (
+            <li key={id} className="tag-list-item" onClick={() => setTagId(id)}>
+              {name}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
   const renderPost = ({
     fields: { slug, title, description, publishDate, readTime },
@@ -43,13 +92,18 @@ export default function Blog(props) {
     </li>
   );
 
+  const postsByTag = groupPosts[tagId];
+
+  const years = Object.keys(postsByTag).reverse();
+
   return (
     <Layout pageTitle="Blog">
+      {tags && renderTags(tags)}
       {years.map((year) => (
         <section key={year}>
           <h2 className="blog-year">{year}</h2>
           <ul className="blog-list">
-            {postsByYear[year].map((post) => renderPost(post))}
+            {postsByTag[year].map((post) => renderPost(post))}
           </ul>
         </section>
       ))}
