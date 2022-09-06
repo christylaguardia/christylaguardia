@@ -7,7 +7,7 @@
 
 <div align="center">
   <h1>Hi, I'm Christy :wave:</h1>
-  <p>A web engineer located in Missoula, Montana.</p>
+  <p>A web engineer located in Olympia, Washington.</p>
 </div>
 
 ### :mailbox: Contact Info:
