@@ -17,7 +17,7 @@
   "dependencies": {
     "@types/react": "18.0.8",
     "contentful": "^8.1.2",
-    "next": "10.0.1",
+    "next": "12.1.0",
     "react": "17.0.1",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "17.0.1",
