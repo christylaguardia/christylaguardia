@@ -26,6 +26,7 @@ export default function PageSlug(props) {
   return (
     <Layout pageTitle={title}>
       <section className="page">
+        {/* eslint-disable-next-line react/no-children-prop */}
         <Markdown children={body} />
       </section>
     </Layout>

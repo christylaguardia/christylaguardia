@@ -23,7 +23,7 @@ export default function Layout(props) {
         siteDescription={siteDescription}
       />
       <TopNav />
-      <main className="main">{children}</main>
+      <main style={{ animation: 'fadeIn 1s' }} className="main">{children}</main>
       <Footer siteTitle={siteTitle} />
     </>
   );

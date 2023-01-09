@@ -40,6 +40,7 @@ export default function BlogSlug(props) {
         )}
         {heroImage && <HeroImage image={heroImage} />}
         <section>
+          {/* eslint-disable-next-line react/no-children-prop */}
           <Markdown children={body} />
         </section>
       </article>

@@ -6,14 +6,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Create a `.env.local` with the following variables:
-
-```txt
-NEXT_PUBLIC_CONTENTFUL_SPACE_ID=
-NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=
-NEXT_PUBLIC_FORMSPREE=
-```
-
 Run the development server:
 
 ```bash

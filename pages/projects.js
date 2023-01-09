@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Layout from '../src/components/Layout';
 import formatDate from '../src/helpers/formatDate';
 import { fetchByContentType } from '../src/helpers/contentful';
+import Contact from '../src/components/Contact';
 
 /**
  * NOTE: The `type` order is configured in the field enum in Contentful
@@ -30,7 +31,7 @@ export default function Project(props) {
   });
 
   const renderProject = ({
-    fields: { slug, title, description, startDate },
+    fields: { slug, title, description, startDate, techStack: tags },
   }) => (
     <li key={slug} className="blog-list-item">
       <div className="blog-list-item-title">
@@ -38,6 +39,15 @@ export default function Project(props) {
           <a href={`/projects/${slug}`}>{title}</a>
         </Link>
         {description && <p>{description}</p>}
+        {tags && (
+          <div className="blog-list-tags">
+            {tags.map((tag) => (
+              <span key={tag} className="blog-list-tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
       <div className="blog-list-item-small">
         <small>
@@ -58,6 +68,7 @@ export default function Project(props) {
           </section>
         );
       })}
+      <Contact title={'Want to hire me?'} />
     </Layout>
   );
 }
@@ -70,6 +81,7 @@ Project.propTypes = {
         title: PropTypes.string,
         description: PropTypes.string,
         startDate: PropTypes.string,
+        techStack: PropTypes.arrayOf(PropTypes.string).isRequired,
       }),
     })
   ),

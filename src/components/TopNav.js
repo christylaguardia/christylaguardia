@@ -4,10 +4,9 @@ import Link from 'next/link';
 export default function TopNav() {
   // TODO: make top nav configurable from Contentful
   const menu = [
-    { title: <span>Christy La&nbsp;Guardia</span>, page: '/' },
-    { title: 'Projects', page: '/projects' },
+    { title: <span>Christy La&nbsp;Guardia</span>, page: '/me' },
+    { title: 'Work', page: '/projects' },
     { title: 'Blog', page: '/blog' },
-    { title: 'Contact', page: '/contact' },
   ];
 
   return (

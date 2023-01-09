@@ -31,6 +31,7 @@ export default function ProjectSlug(props) {
         <p>
           <small>{formatDate(startDate, 'monthyear')}</small>
         </p>
+        {/* eslint-disable-next-line react/no-children-prop */}
         <Markdown children={body} />
         {tags && (
           <div className="tags">
@@ -51,7 +52,7 @@ ProjectSlug.propTypes = {
     PropTypes.shape({
       fields: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
+        description: PropTypes.string,
         body: PropTypes.string.isRequired,
         startDate: PropTypes.string.isRequired,
         techStack: PropTypes.arrayOf(PropTypes.string).isRequired,
