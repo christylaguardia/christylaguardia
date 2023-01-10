@@ -27,9 +27,7 @@ export default function ProjectSlug(props) {
   return (
     <Layout pageTitle={title}>
       <Link href="/projects">
-        <a href={`https://christylaguardia.com/projects`}>
-          <span>&larr; Projects</span>
-        </a>
+        <span>&larr; Projects</span>
       </Link>
       <section className="article">
         <h2>{title}</h2>
@@ -37,7 +35,7 @@ export default function ProjectSlug(props) {
         <p>
           <small>{formatDate(startDate, 'monthyear')}</small>
         </p>
-        <Markdown children={body} />
+        <Markdown>{body}</Markdown>
         {tags && (
           <div className="tags">
             {tags.map((tag) => (

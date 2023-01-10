@@ -27,12 +27,10 @@ export default function PageSlug(props) {
   return (
     <Layout pageTitle={title}>
       <Link href="/">
-        <a href={`https://christylaguardia.com/`}>
-          <span>&larr; Home</span>
-        </a>
+        <span>&larr; Home</span>
       </Link>
       <section className="page">
-        <Markdown children={body} />
+        <Markdown>{body}</Markdown>
       </section>
     </Layout>
   );

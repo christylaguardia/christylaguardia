@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import Layout from '../src/components/Layout';
-import formatDate from '../src/helpers/formatDate';
-import { fetchByContentType } from '../src/helpers/contentful';
+import Layout from '../../src/components/Layout';
+import formatDate from '../../src/helpers/formatDate';
+import { fetchByContentType } from '../../src/helpers/contentful';
 
 /**
  * NOTE: The `type` order is configured in the field enum in Contentful
@@ -34,9 +34,7 @@ export default function Project(props) {
   }) => (
     <li key={slug} className="blog-list-item">
       <div className="blog-list-item-title">
-        <Link href={{ pathname: `/projects/${slug}` }}>
-          <a href={`/projects/${slug}`}>{title}</a>
-        </Link>
+        <Link href={{ pathname: `/projects/${slug}` }}>{title}</Link>
         {description && <p>{description}</p>}
       </div>
       <div className="blog-list-item-small">
@@ -50,9 +48,7 @@ export default function Project(props) {
   return (
     <Layout pageTitle="Projects">
       <Link href="/">
-        <a href={`https://christylaguardia.com/`}>
-          <span>&larr; Home</span>
-        </a>
+        <span>&larr; Home</span>
       </Link>
       {groupedProjects.map((group, index) => {
         const SectionName = types[index];

@@ -1,15 +1,12 @@
 module.exports = {
   images: {
-    domains: ['images.ctfassets.net'],
-  },
-
-  async redirects() {
-    return [
+    remotePatterns: [
       {
-        source: '/about',
-        destination: '/',
-        permanent: true,
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+        port: '',
+        pathname: '/account123/**',
       },
-    ];
+    ],
   },
-};
+}
