@@ -49,6 +49,11 @@ export default function Project(props) {
 
   return (
     <Layout pageTitle="Projects">
+      <Link href="/">
+        <a href={`https://christylaguardia.com/`}>
+          <span>&larr; Home</span>
+        </a>
+      </Link>
       {groupedProjects.map((group, index) => {
         const SectionName = types[index];
         return (

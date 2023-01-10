@@ -22,9 +22,9 @@ export default function Layout(props) {
         siteTitle={siteTitle}
         siteDescription={siteDescription}
       />
-      <TopNav />
+      {/* <TopNav /> */}
       <main className="main">{children}</main>
-      <Footer siteTitle={siteTitle} />
+      {/* <Footer siteTitle={siteTitle} /> */}
     </>
   );
 }

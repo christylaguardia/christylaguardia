@@ -1,9 +1,9 @@
 {
-  "name": "blog",
+  "name": "christylaguardia",
   "author": "Christy La Guardia",
   "repository": {
     "type": "git",
-    "url": "https://github.com/christylaguardia/blog.git"
+    "url": "https://github.com/christylaguardia/christylaguardia"
   },
   "version": "0.1.0",
   "private": true,

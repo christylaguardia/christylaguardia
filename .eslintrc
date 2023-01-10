@@ -16,6 +16,12 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-console": "error"
+    "no-console": "error",
+    "react/no-children-prop": [
+      false,
+      {
+        "allowFunctions": false
+      }
+    ]
   }
 }

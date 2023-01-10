@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 import Layout from '../src/components/Layout';
@@ -25,6 +26,11 @@ export default function PageSlug(props) {
 
   return (
     <Layout pageTitle={title}>
+      <Link href="/">
+        <a href={`https://christylaguardia.com/`}>
+          <span>&larr; Home</span>
+        </a>
+      </Link>
       <section className="page">
         <Markdown children={body} />
       </section>

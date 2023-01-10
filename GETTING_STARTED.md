@@ -1,4 +1,4 @@
-# Christy La Guardia's Blog
+# Christy La Guardia's Portfolio
 
 ## [Production](https://christylaguardia.com/)
 
@@ -34,27 +34,3 @@ Field | Type
 Title | Short text
 Slug | Short text
 Body | Long text (markdown)
-
-## Blog Posts
-
-New posts can be added as in [Contentful](https://be.contentful.com/login).
-
-Field | Type
--- | --
-Title | Short text
-Slug | Short text
-Hero Image | Media
-Description | Long text (markdown)
-Body | Long text (markdown)
-Publish Date | Date & time
-Read Time | Integer
-Tags | Short list, text
-
-### Read time
-
-Use [Read-O-Meter](https://niram.org/read/) to get the value for the `readTime` field.
-
-## References
-
-- https://heymike.dev/post/build-a-static-blog-with-next-js-and-contentful-part-two-next-js
-- https://www.netlify.com/blog/2020/08/17/integrate-next.js-contentful/
