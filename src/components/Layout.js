@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from './Head';
-import TopNav from './TopNav';
-import Footer from './Footer';
 
 export const siteInfo = {
   siteTitle: 'Christy La Guardia',
@@ -22,9 +20,7 @@ export default function Layout(props) {
         siteTitle={siteTitle}
         siteDescription={siteDescription}
       />
-      <TopNav />
       <main className="main">{children}</main>
-      <Footer siteTitle={siteTitle} />
     </>
   );
 }

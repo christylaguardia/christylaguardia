@@ -14,14 +14,14 @@ export default function Home(props) {
   return (
     <Layout pageTitle={title}>
       <section className="page">
-        <Markdown children={body} />
+        <Markdown>{body}</Markdown>
       </section>
     </Layout>
   );
 }
 
 Home.propTypes = {
-  page: PropTypes.shape({
+  entry: PropTypes.shape({
     fields: PropTypes.shape({
       title: PropTypes.string,
       body: PropTypes.string,
@@ -30,5 +30,5 @@ Home.propTypes = {
 };
 
 export async function getStaticProps() {
-  return fetchByEntry('2DhHAgxs0TQ4fvDFC6w8Fs');
+  return fetchByEntry('F7FPpVESEOCwx6JznVyKt');
 }

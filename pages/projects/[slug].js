@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import Markdown from 'react-markdown';
 import Layout from '../../src/components/Layout';
 import formatDate from '../../src/helpers/formatDate';
@@ -25,13 +26,16 @@ export default function ProjectSlug(props) {
 
   return (
     <Layout pageTitle={title}>
+      <Link href="/projects">
+        <span>&larr; Projects</span>
+      </Link>
       <section className="article">
         <h2>{title}</h2>
         <h3>{description}</h3>
         <p>
           <small>{formatDate(startDate, 'monthyear')}</small>
         </p>
-        <Markdown children={body} />
+        <Markdown>{body}</Markdown>
         {tags && (
           <div className="tags">
             {tags.map((tag) => (
