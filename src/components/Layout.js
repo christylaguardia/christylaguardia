@@ -5,7 +5,7 @@ import Head from './Head';
 export const siteInfo = {
   siteTitle: 'Christy La Guardia',
   siteDescription:
-    'Stories of survival, escape and recovery from the Jehovah Witness cult.',
+    'Christy La Guardia | Senior Software Engineer and Mentor',
 };
 
 export default function Layout(props) {
