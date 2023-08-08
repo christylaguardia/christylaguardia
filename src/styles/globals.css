@@ -39,7 +39,7 @@ main,
 }
 
 main {
-  min-height: 60vh;
+  min-height: 80vh;
 }
 
 a {
@@ -55,7 +55,23 @@ a:hover {
   color: #757575;
 }
 
+img {
+  display: block;
+  margin: auto;
+}
+
+.home {
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 .footer {
+  text-align: center;
   margin-top: 1rem;
   margin-bottom: 4rem;
   border-top: 2px solid #757575;
@@ -64,7 +80,7 @@ a:hover {
 .footer p {
   padding: 1rem 0;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .footer a {
@@ -234,7 +250,7 @@ blockquote {
   background: #f9f9f9;
   border-left: 10px solid #d3d3d3;
   padding: 20px 10px;
-  quotes: '\201C''\201D''\2018''\2019';
+  quotes: '\201C' '\201D' '\2018' '\2019';
 }
 
 blockquote:before {

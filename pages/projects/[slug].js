@@ -26,9 +26,14 @@ export default function ProjectSlug(props) {
 
   return (
     <Layout pageTitle={title}>
-      <Link href="/projects">
-        <span>&larr; Projects</span>
-      </Link>
+      <div className="header">
+        <Link href="/projects">
+          <span>&larr; Projects</span>
+        </Link>
+        <Link href="/contact">
+          <span>Christy La&nbsp;Guardia</span>
+        </Link>
+      </div>
       <section className="article">
         <h2>{title}</h2>
         <h3>{description}</h3>
@@ -60,7 +65,7 @@ ProjectSlug.propTypes = {
         startDate: PropTypes.string.isRequired,
         techStack: PropTypes.arrayOf(PropTypes.string).isRequired,
       }),
-    })
+    }),
   ),
 };
 

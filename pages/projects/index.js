@@ -21,7 +21,7 @@ export default function Project(props) {
   // Group projects by type
   const groupedProjects = types.map((type) => {
     const filteredProjects = projects.filter(
-      (project) => project.fields.type === type
+      (project) => project.fields.type === type,
     );
     return {
       type,
@@ -47,9 +47,14 @@ export default function Project(props) {
 
   return (
     <Layout pageTitle="Projects">
-      <Link href="/">
-        <span>&larr; Home</span>
-      </Link>
+      <div className="header">
+        <Link href="/">
+          <span>&larr; Home</span>
+        </Link>
+        <Link href="/contact">
+          <span>Christy La&nbsp;Guardia</span>
+        </Link>
+      </div>
       {groupedProjects.map((group, index) => {
         const SectionName = types[index];
         return (
@@ -72,7 +77,7 @@ Project.propTypes = {
         description: PropTypes.string,
         startDate: PropTypes.string,
       }),
-    })
+    }),
   ),
 };
 

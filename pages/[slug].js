@@ -26,9 +26,14 @@ export default function PageSlug(props) {
 
   return (
     <Layout pageTitle={title}>
-      <Link href="/">
-        <span>&larr; Home</span>
-      </Link>
+      <div className="header">
+        <Link href="/">
+          <span>&larr; Home</span>
+        </Link>
+        <Link href="/contact">
+          <span>Christy La&nbsp;Guardia</span>
+        </Link>
+      </div>
       <section className="page">
         <Markdown>{body}</Markdown>
       </section>
@@ -43,7 +48,7 @@ PageSlug.propTypes = {
         title: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
       }),
-    })
+    }),
   ),
 };
 

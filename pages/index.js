@@ -13,7 +13,7 @@ export default function Home(props) {
 
   return (
     <Layout pageTitle={title}>
-      <section className="page">
+      <section className="page home">
         <Markdown>{body}</Markdown>
       </section>
     </Layout>
