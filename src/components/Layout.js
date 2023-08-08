@@ -5,8 +5,7 @@ import Footer from './Footer';
 
 export const siteInfo = {
   siteTitle: 'Christy La Guardia',
-  siteDescription:
-    'Christy La Guardia | Senior Software Engineer and Mentor',
+  siteDescription: 'Christy La Guardia | Senior Software Engineer and Mentor',
 };
 
 export default function Layout(props) {
