@@ -8,6 +8,10 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link
+            href="https://assets.calendly.com/assets/external/widget.css"
+            rel="stylesheet"
+          />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           {process.env.NODE_ENV === 'production' && (
             <>

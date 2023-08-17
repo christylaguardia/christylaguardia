@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from './Head';
 import Footer from './Footer';
+import Header from './Header';
 
 export const siteInfo = {
   siteTitle: 'Christy La Guardia',
@@ -20,7 +21,8 @@ export default function Layout(props) {
         siteTitle={siteTitle}
         siteDescription={siteDescription}
       />
-      <main className="main">{children}</main>
+      <Header />
+      <main>{children}</main>
       <Footer siteTitle={siteTitle} />
     </>
   );

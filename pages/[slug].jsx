@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 import Layout from '../src/components/Layout';
@@ -8,7 +7,7 @@ import {
   fetchPathsByContentType,
 } from '../src/helpers/contentful';
 
-export default function PageSlug(props) {
+export default function GenericPage(props) {
   const { entries } = props;
 
   // TODO: how to do this in getStaticProps?
@@ -17,7 +16,11 @@ export default function PageSlug(props) {
   const page = entries[0];
 
   if (page === 'undefined' || !page) {
-    return <p>Uh Oh! Something went wrong :(</p>;
+    return (
+      <Layout pageTitle={title}>
+        <p>Uh Oh! Something went wrong :(</p>
+      </Layout>
+    );
   }
 
   const {
@@ -26,25 +29,18 @@ export default function PageSlug(props) {
 
   return (
     <Layout pageTitle={title}>
-      <div className="header">
-        <Link href="/">
-          <span>&larr; Home</span>
-        </Link>
-        <Link href="/contact">
-          <span>Christy La&nbsp;Guardia</span>
-        </Link>
-      </div>
-      <section className="page">
+      <section>
         <Markdown>{body}</Markdown>
       </section>
     </Layout>
   );
 }
 
-PageSlug.propTypes = {
+GenericPage.propTypes = {
   entries: PropTypes.arrayOf(
     PropTypes.shape({
       fields: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
       }),

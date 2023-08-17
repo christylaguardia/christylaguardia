@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Layout from '../../src/components/Layout';
 import formatDate from '../../src/helpers/formatDate';
 import { fetchByContentType } from '../../src/helpers/contentful';
+import css from './index.module.css';
 
 /**
  * NOTE: The `type` order is configured in the field enum in Contentful
@@ -32,12 +33,12 @@ export default function Project(props) {
   const renderProject = ({
     fields: { slug, title, description, startDate },
   }) => (
-    <li key={slug} className="blog-list-item">
-      <div className="blog-list-item-title">
+    <li key={slug} className={css.item}>
+      <div className={css.title}>
         <Link href={{ pathname: `/projects/${slug}` }}>{title}</Link>
         {description && <p>{description}</p>}
       </div>
-      <div className="blog-list-item-small">
+      <div className={css.small}>
         <small>
           <span>{formatDate(startDate, 'monthyear')}</span>
         </small>
@@ -47,20 +48,12 @@ export default function Project(props) {
 
   return (
     <Layout pageTitle="Projects">
-      <div className="header">
-        <Link href="/">
-          <span>&larr; Home</span>
-        </Link>
-        <Link href="/contact">
-          <span>Christy La&nbsp;Guardia</span>
-        </Link>
-      </div>
       {groupedProjects.map((group, index) => {
         const SectionName = types[index];
         return (
           <section key={SectionName}>
-            <h2 className="blog-year">{SectionName}</h2>
-            <ul className="blog-list">{group.projects.map(renderProject)}</ul>
+            <h2 className={css.year}>{SectionName}</h2>
+            <ul className={css.list}>{group.projects.map(renderProject)}</ul>
           </section>
         );
       })}

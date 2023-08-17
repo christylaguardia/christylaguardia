@@ -8,6 +8,7 @@ import {
   fetchByContentType,
   fetchPathsByContentType,
 } from '../../src/helpers/contentful';
+import css from './slug.module.css';
 
 export default function ProjectSlug(props) {
   const { entries } = props;
@@ -26,15 +27,10 @@ export default function ProjectSlug(props) {
 
   return (
     <Layout pageTitle={title}>
-      <div className="header">
-        <Link href="/projects">
-          <span>&larr; Projects</span>
-        </Link>
-        <Link href="/contact">
-          <span>Christy La&nbsp;Guardia</span>
-        </Link>
-      </div>
-      <section className="article">
+      <Link href="/projects">
+        <span>&larr; Projects</span>
+      </Link>
+      <section className={css.article}>
         <h2>{title}</h2>
         <h3>{description}</h3>
         <p>
@@ -42,9 +38,9 @@ export default function ProjectSlug(props) {
         </p>
         <Markdown>{body}</Markdown>
         {tags && (
-          <div className="tags">
+          <div className={css.tags}>
             {tags.map((tag) => (
-              <span key={tag} className="tag">
+              <span key={tag} className={css.tag}>
                 {tag}
               </span>
             ))}

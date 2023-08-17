@@ -4,7 +4,7 @@ import Markdown from 'react-markdown';
 import Layout from '../src/components/Layout';
 import { fetchByEntry } from '../src/helpers/contentful';
 
-export default function Home(props) {
+export default function About(props) {
   const {
     entry: {
       fields: { title, body },
@@ -13,14 +13,14 @@ export default function Home(props) {
 
   return (
     <Layout pageTitle={title}>
-      <section className="page home">
+      <section>
         <Markdown>{body}</Markdown>
       </section>
     </Layout>
   );
 }
 
-Home.propTypes = {
+About.propTypes = {
   entry: PropTypes.shape({
     fields: PropTypes.shape({
       title: PropTypes.string,
@@ -30,5 +30,5 @@ Home.propTypes = {
 };
 
 export async function getStaticProps() {
-  return fetchByEntry('F7FPpVESEOCwx6JznVyKt');
+  return fetchByEntry('F7FPpVESEOCwx6JznVyKt'); // "Home" Page
 }
