@@ -1,4 +1,5 @@
 {
+  "license": "MIT",
   "name": "christylaguardia",
   "author": "Christy La Guardia",
   "repository": {
@@ -14,21 +15,21 @@
     "lint": "eslint 'pages/**/*.js' 'src/**/*.js'"
   },
   "dependencies": {
-    "contentful": "^9.2.14",
+    "contentful": "^10.6.16",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-markdown": "^8.0.4"
+    "react-markdown": "^9.0.1"
   },
   "devDependencies": {
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.26",
+    "@types/node": "20.11.0",
+    "@types/react": "18.2.47",
     "eslint": "^8.31.0",
-    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jsx-a11y": "^6.7.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.31.11",
     "prettier": "^3.0.0",
-    "typescript": "4.9.4"
+    "typescript": "5.3.3"
   }
 }
